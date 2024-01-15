@@ -64,11 +64,6 @@ function ContestInfo(props) {
                     family: 'Lora'
                 }
             },
-            chartAreaBorder: {
-                borderColor: '#fff',
-                borderWidth: 10,
-                borderDash: [10, 10],
-            }
         },
         scales: {
             x: {
@@ -114,9 +109,8 @@ function ContestInfo(props) {
             },
         },
     };
-
-    const labels = contestData.previousContests.map((data) => {
-        // return data.contestName
+    const previousContestsData = contestData.previousContests
+    const labels = previousContestsData.map((data) => {
         const a = data.contestName.split(" ")
         return `${a[0]} ${a[1]}`
     })

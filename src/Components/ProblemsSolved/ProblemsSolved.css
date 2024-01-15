@@ -1,0 +1,14 @@
+.problems-solved-container{
+    height: 450px;
+    background-color: var(--secondary-color);
+    margin: 10px;
+    width: 47vw;
+    padding-left: 5px;
+
+    h1 {
+        font-family: 'Domine', serif;
+        color: var(--text-color-primary);
+        text-align: center;
+        padding-top: 20px;
+    }
+}
