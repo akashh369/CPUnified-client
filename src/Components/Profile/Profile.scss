@@ -1,0 +1,63 @@
+.profile-container {
+    background-color: var(--secondary-color);
+    color:var(--text-color-primary);
+    width: 47vw;
+    height: 220px;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Lora', serif;
+}
+
+h3{
+    font-family: 'Domine', serif;
+    font-size: 1.083rem;
+}
+
+.profile-photo {
+    position: relative;
+    // margin: auto;
+    padding: 3px 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    img {
+        border-radius: 50%;
+        width: 150px;
+        border:black  10px;
+        border-style:outset
+    }
+    a{
+        margin : 0 auto;
+        color: var(--text-color-secondary);
+        font-family: 'Domine', serif;
+    }
+    a:hover{
+        color: #000;
+        
+    }
+}
+
+.name-ranking{
+    font-size: 1.2rem;
+    h3{
+        display: inline-block;
+        margin: 10px;
+        font-size: 1.083rem;
+    }
+}
+.user-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 5px 20px;
+}
+
+.name-star-rating {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.stars{
+    margin:  auto 0;
+
+}

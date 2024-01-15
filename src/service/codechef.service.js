@@ -1,58 +1,80 @@
 export const data =
 {
-    "username": "mahatejvarma",
+    "_id": {
+      "$oid": "65a3b72dede3148cba268e82"
+    },
+    "username": "akashh_bhandar",
+    "__v": 0,
     "createdAt": {
-        "$date": "2024-01-14T10:26:42.408Z"
+      "$date": "2024-01-14T10:27:57.675Z"
     },
     "heatMap": [
-        {
-            "count": "3",
-            "date": {
-                "$date": "2023-11-30T00:00:00.000Z"
-            },
-            "_id": {
-                "$oid": "65a3b6e216d0170a688e13fa"
-            }
+      {
+        "count": "38",
+        "date": {
+          "$date": "2023-12-20T00:00:00.000Z"
         },
-        {
-            "count": "5",
-            "date": {
-                "$date": "2023-11-30T18:30:00.000Z"
-            },
-            "_id": {
-                "$oid": "65a3b6e216d0170a688e13fb"
-            }
-        },
-        {
-            "count": "9",
-            "date": {
-                "$date": "2023-12-05T18:30:00.000Z"
-            },
-            "_id": {
-                "$oid": "65a3b6e216d0170a688e13fc"
-            }
-        },
-        {
-            "count": "2",
-            "date": {
-                "$date": "2023-12-06T18:30:00.000Z"
-            },
-            "_id": {
-                "$oid": "65a3b6e216d0170a688e13fd"
-            }
+        "_id": {
+          "$oid": "65a3d876b5572004986fda5b"
         }
+      },
+      {
+        "count": "8",
+        "date": {
+          "$date": "2023-12-21T00:00:00.000Z"
+        },
+        "_id": {
+          "$oid": "65a3d876b5572004986fda5c"
+        }
+      },
+      {
+        "count": "75",
+        "date": {
+          "$date": "2024-01-02T18:30:00.000Z"
+        },
+        "_id": {
+          "$oid": "65a3d876b5572004986fda5d"
+        }
+      },
+      {
+        "count": "5",
+        "date": {
+          "$date": "2024-01-07T18:30:00.000Z"
+        },
+        "_id": {
+          "$oid": "65a3d876b5572004986fda5e"
+        }
+      },
+      {
+        "count": "103",
+        "date": {
+          "$date": "2024-01-09T18:30:00.000Z"
+        },
+        "_id": {
+          "$oid": "65a3d876b5572004986fda5f"
+        }
+      },
+      {
+        "count": "1",
+        "date": {
+          "$date": "2024-01-13T18:30:00.000Z"
+        },
+        "_id": {
+          "$oid": "65a3d876b5572004986fda60"
+        }
+      }
     ],
     "updatedAt": {
-        "$date": "2024-01-14T10:26:42.408Z"
+      "$date": "2024-01-14T12:49:58.220Z"
     },
     "userInfo": {
-        "name": "Mahatej Varma",
-        "profile": "https://cdn.codechef.com/sites/all/themes/abessive/images/user_default_thumb.jpg",
-        "currentRating": "1696",
-        "highestRating": "1740",
-        "countryName": "India",
-        "globalRank": null,
-        "countryRank": null,
-        "stars": "3★"
+      "name": "Akash Laxman Bhandari",
+      "profile": "https://cdn.codechef.com/sites/default/files/uploads/pictures/2e8e86eadcadeab61c4b207d91f70752.png",
+      "currentRating": "1576",
+      "highestRating": "1649",
+      "countryName": "India",
+      "globalRank": "18925",
+      "countryRank": "16601",
+      "stars": "2★"
     }
-}
+  }

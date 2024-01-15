@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap'); /*font-family: 'Domine', serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap'); /*font-family: 'Lora', serif;*/
 :root{
   --primary-color : #121212;
-  --secondary-color : #036b0e;
-  --text-color-primary : #fff;
+  --secondary-color : #0e0836;
+  --text-color-primary : whitesmoke;
+  --text-color-secondary : red
 }
 
 body {

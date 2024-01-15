@@ -1,14 +1,13 @@
 import React from 'react'
 import Profile from '../../Components/Profile/Profile'
 import './CodechefCompare.css'
-// import {data} from '../../service/codechef.service'
+import {data} from '../../service/codechef.service'
 
 function CodechefCompare() {
-    // const userData = data
-        // console.log("data=",data)
+    const userData = data
     return (
         <>
-        <Profile/>
+        <Profile username={data.username} userinfo={data.userInfo}/>
         
         </>
     )

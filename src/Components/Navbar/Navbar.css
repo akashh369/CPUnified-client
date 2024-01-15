@@ -13,5 +13,5 @@
 }
 a.activeNavElement{
     padding: 10px 20px;
-    color: red;
+    color: var(text-color-secondary);
 }
