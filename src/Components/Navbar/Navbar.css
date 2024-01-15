@@ -1,0 +1,17 @@
+.activeNavPage{
+    color: azure;
+}
+
+.navClass{
+    background-color: var(--primary-color);
+    display: flex;
+}
+
+.navElement{
+    padding: 10px 20px;
+    color: #fff;
+}
+a.activeNavElement{
+    padding: 10px 20px;
+    color: red;
+}

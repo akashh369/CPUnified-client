@@ -1,0 +1,11 @@
+.main-container{
+    height: 50vh;
+    width: 50vh;
+    background-color: aliceblue;
+    z-index: 100;
+    color: aliceblue;
+    
+}
+.color{
+    color: aliceblue;
+}
