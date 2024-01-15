@@ -52,11 +52,11 @@ function ContestInfo(props) {
         responsive: true,
         plugins: {
             legend: {
-                display : false,
+                display: false,
                 position: 'top',
             },
             title: {
-                display: true,
+                display: false,
                 text: 'Rating Graph',
                 color: '#fff',
                 font: {
@@ -136,8 +136,9 @@ function ContestInfo(props) {
     return (
         <>
             <div className="contest-info-container">
+                <h1>Rating Graph</h1>
                 <div className="bar-graph">
-                    <Bar options={options} data={data} />;
+                    <Bar options={options} data={data} />
                 </div>
             </div>
         </>
