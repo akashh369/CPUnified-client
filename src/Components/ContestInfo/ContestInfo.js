@@ -67,12 +67,13 @@ function ContestInfo(props) {
         },
         scales: {
             x: {
+                barPercentage: 0.4,
                 border: {
                     color: 'white'
                 },
                 grid: {
-                    color: 'red',
-                    borderColor: 'red',
+                    color: 'grey',
+                    borderColor: 'grey',
                     tickColor: 'white'
                 },
                 font: {
@@ -91,12 +92,13 @@ function ContestInfo(props) {
                 // }
             },
             y: {
+                // barPercentage: 0.4,
                 border: {
                     color: 'white'
                 },
                 grid: {
-                    color: 'red',
-                    borderColor: 'red',
+                    color: 'grey',
+                    borderColor: 'grey',
                     tickColor: 'white'
                 },
                 ticks: {
@@ -120,8 +122,9 @@ function ContestInfo(props) {
             {
                 label: 'contest rating',
                 data: contestData.previousContests.map((singleData) => singleData.contestRating.rating),
-                borderColor: 'white',
-                backgroundColor: 'black',
+                borderColor: '#f5eeee',
+                backgroundColor: '#f1a22b',
+
             },
 
         ],

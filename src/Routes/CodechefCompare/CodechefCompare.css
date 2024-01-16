@@ -1,6 +1,8 @@
 .main-container {
     display: flex;
     flex-direction: row;
+    margin: auto 0;
+    justify-content: center;
 }
 
 .main-container-right {

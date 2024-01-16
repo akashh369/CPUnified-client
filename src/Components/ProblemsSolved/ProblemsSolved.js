@@ -40,12 +40,12 @@ export const options = {
   scales: {
     x: {
       border: {
-        color: 'grey'
+        color: 'white'
       },
       grid: {
-        color: 'red',
-        borderColor: 'red',
-        tickColor: 'grey'
+        color: 'grey',
+        borderColor: 'grey',
+        tickColor: 'white'
       },
       ticks: {
         color: 'white',
@@ -54,12 +54,12 @@ export const options = {
     },
     y: {
       border: {
-        color: 'grey'
+        color: 'white'
       },
       grid: {
-        color: 'red',
-        borderColor: 'red',
-        tickColor: 'grey'
+        color: 'grey',
+        borderColor: 'grey',
+        tickColor: 'white'
       },
       ticks: {
         color: 'white'
@@ -80,8 +80,8 @@ function ProblemsSolved(props) {
       {
         label: 'submissions',
         data: heatArray.map((singleDay) => singleDay.count > 19 ? 19 : singleDay.count).slice(-30),
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        borderColor: 'rgb(255,160,21)',
+        backgroundColor: '#fff',
       }
     ]
   }

@@ -7,7 +7,8 @@
 
     h1 {
         font-family: 'Domine', serif;
-        color: var(--text-color-primary);
+        /* color: var(--text-color-primary); */
+        color: var(--text-color-white);
         text-align: center;
         padding-top: 20px;
     }

@@ -9,7 +9,7 @@
 
 .navElement{
     padding: 10px 20px;
-    color: #fff;
+    color: var(--text-color-primary);
 }
 a.activeNavElement{
     padding: 10px 20px;

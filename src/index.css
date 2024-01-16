@@ -4,11 +4,12 @@
 
 /*font-family: 'Lora', serif;*/
 :root {
-  --primary-color: #121212;
-  --secondary-color: #1d135c;
+  --primary-color: #282828;
+  --secondary-color: #1A1A1A;
 
-  --text-color-primary: whitesmoke;
-  --text-color-secondary: red;
+  --text-color-primary: #A9A9A9;
+  --text-color-secondary: #f1a22b;
+  --text-color-white : #fff;
 }
 
 body {
@@ -18,7 +19,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #000;
+  background-color: var(--secondary-color);
 }
 
 code {
@@ -32,8 +33,8 @@ a {
 }
 
 .common-container {
-  background: rgba(85, 122, 163, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(26, 33, 127, 0.37);
+  background: var(--primary-color);
+  /* box-shadow: 0 8px 32px 0 rgba(26, 33, 127, 0.37); */
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
