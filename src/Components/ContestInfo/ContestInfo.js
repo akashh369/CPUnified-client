@@ -129,7 +129,7 @@ function ContestInfo(props) {
 
     return (
         <>
-            <div className="contest-info-container">
+            <div className="contest-info-container common-container">
                 <h1>Rating Graph</h1>
                 <div className="bar-graph">
                     <Bar options={options} data={data} />

@@ -1,6 +1,6 @@
 .problems-solved-container{
     height: 450px;
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
     margin: 10px;
     width: 47vw;
     padding-left: 5px;

@@ -29,7 +29,7 @@ export const options = {
   responsive: true,
   plugins: {
     legend: {
-      display:false,
+      display: false,
       position: 'top',
     },
     title: {
@@ -43,8 +43,8 @@ export const options = {
         color: 'grey'
       },
       grid: {
-        color: 'grey',
-        borderColor: 'grey',
+        color: 'red',
+        borderColor: 'red',
         tickColor: 'grey'
       },
       ticks: {
@@ -57,15 +57,15 @@ export const options = {
         color: 'grey'
       },
       grid: {
-        color: 'grey',
-        borderColor: 'grey',
+        color: 'red',
+        borderColor: 'red',
         tickColor: 'grey'
       },
       ticks: {
         color: 'white'
       },
       drawBorder: false,
-      max:20,
+      max: 20,
     },
   }
 };
@@ -79,7 +79,7 @@ function ProblemsSolved(props) {
     datasets: [
       {
         label: 'submissions',
-        data: heatArray.map((singleDay) => singleDay.count > 19 ? 19:singleDay.count).slice(-30),
+        data: heatArray.map((singleDay) => singleDay.count > 19 ? 19 : singleDay.count).slice(-30),
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       }
@@ -88,7 +88,7 @@ function ProblemsSolved(props) {
   heatArray.map((data) => { console.log(moment(data.date.$date).format('DD MMM')) })
   return (
     <>
-      <div className='problems-solved-container'>
+      <div className='problems-solved-container common-container'>
         <h1>
           Previous Submissions Count
 

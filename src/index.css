@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap'); /*font-family: 'Domine', serif;*/
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap'); /*font-family: 'Lora', serif;*/
-:root{
-  --primary-color : #121212;
-  --secondary-color : #0e0836;
-  --text-color-primary : whitesmoke;
-  --text-color-secondary : red;
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap');
+/*font-family: 'Domine', serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap');
+
+/*font-family: 'Lora', serif;*/
+:root {
+  --primary-color: #121212;
+  --secondary-color: #1d135c;
+
+  --text-color-primary: whitesmoke;
+  --text-color-secondary: red;
 }
 
 body {
@@ -21,7 +25,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-a{
+
+a {
   all: unset;
   cursor: pointer;
+}
+
+.common-container {
+  background: rgba(85, 122, 163, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(26, 33, 127, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 0;
 }

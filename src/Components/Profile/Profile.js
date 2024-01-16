@@ -6,7 +6,7 @@ function Profile(props) {
   const photo = username.Profile
   console.log("user=", userinfo)
   return (<>
-    <div className='profile-container'>
+    <div className='profile-container common-container'>
       <div className="profile-photo">
         <img src={userinfo.profile} />
         <a style={{ margin: "0 auto" }} href={`https://www.codechef.com/users/${username}`} target='_blank'>CodeChef Profile</a>
@@ -50,6 +50,26 @@ function Profile(props) {
               Current Rating :
             </h3>
             {(userinfo.currentRating) ? userinfo.currentRating : "--"}
+          </div>
+        </div>
+
+
+        <div className="profile-footer">
+
+          <div className="name-ranking">
+            <h3>
+              <a href="">
+                Change handle User
+              </a>
+
+            </h3>
+          </div>
+
+          <div className="name-ranking">
+            <h3>
+              <a href="">Refresh Data</a>
+
+            </h3>
           </div>
         </div>
       </div>
