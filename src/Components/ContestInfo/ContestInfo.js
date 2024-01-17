@@ -136,6 +136,9 @@ function ContestInfo(props) {
                 <h1>Rating Graph</h1>
                 <div className="bar-graph">
                     <Bar options={options} data={data} />
+                <div className="compare-button">
+                    <a href="">compare</a>
+                </div>
                 </div>
             </div>
         </>
