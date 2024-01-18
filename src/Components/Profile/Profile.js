@@ -4,7 +4,7 @@ import './Profile.scss'
 function Profile(props) {
   const { username, userinfo } = props
   const photo = username.Profile
-  console.log("user=", userinfo)
+  // console.log("user=", userinfo)
   return (<>
     <div className='profile-container common-container'>
       <div className="profile-photo">

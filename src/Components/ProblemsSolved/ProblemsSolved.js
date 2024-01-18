@@ -85,7 +85,7 @@ function ProblemsSolved(props) {
       }
     ]
   }
-  heatArray.map((data) => { console.log(moment(data.date.$date).format('DD MMM')) })
+  // heatArray.map((data) => { console.log(moment(data.date.$date).format('DD MMM')) })
   return (
     <>
       <div className='problems-solved-container common-container'>
