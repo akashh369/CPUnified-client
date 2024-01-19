@@ -1,9 +1,9 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './CompareComponent.css'
 import Profile from '../Profile/Profile'
 import ContestInfo from '../ContestInfo/ContestInfo'
 import ProblemsSolved from '../ProblemsSolved/ProblemsSolved'
-import { getUserData } from '../../service/codechef.service'
+import { getUserData, refreshUserData } from '../../service/codechef.service'
 
 function CompareComponent() {
 
@@ -13,7 +13,7 @@ function CompareComponent() {
         setLoading(true)
         getUserData().then((res) => {
             let response = res.data
-            response.ppreviousContests = response.previousContests.reverse()
+            response.previousContests = response.previousContests.reverse()
             setUserData(response)
 
             console.log(userData, res.data)
@@ -27,13 +27,24 @@ function CompareComponent() {
         if (userData != undefined)
             setLoading(false)
     }, [userData])
-    console.log("userData=", userData)
+    // console.log("userData=", userData)
+
+
+     const updateUserData = function(username){
+        const response = refreshUserData(username).then((res)=>{
+            const response = res.data
+            response.previousContests = response.previousContests.reverse()
+            setUserData(response)
+        })
+        // response.previousContests = response.previousContests.reverse()
+        // setUserData(response)
+    }
 
     return (
         <>
             {!loading ?
-                <div className="container-left">
-                    <Profile username={userData.user.username} userinfo={userData.user.userInfo} />
+                <div className="compare-container">
+                    <Profile username={userData.user.username} userinfo={userData.user.userInfo} updateUserData={updateUserData}/>
                     <ContestInfo contestData={userData} />
                     <ProblemsSolved heatArray={userData.user.heatMap} />
                 </div>

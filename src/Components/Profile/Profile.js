@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Profile.scss'
 
+import DialogBox from '../DialogBox/DialogBox'
+
 function Profile(props) {
-  const { username, userinfo } = props
+  const { username, userinfo, updateUserData } = props
+  const [ showDialog, setShowDialog ] = useState(false)
+  function updateFunction() {
+    console.log("click")
+    updateUserData(username)
+  }
+  function toggleDialogBox() {
+    // showDialog ? setShowDialog(false) : setShowDialog(true)
+    // setShowDialog(true)
+    console.log("showDialog")
+  }
+  // console.log("updateUserData=",updateUserData)
+  console.log("abc")
   const photo = username.Profile
-  // console.log("user=", userinfo)
   return (<>
     <div className='profile-container common-container'>
       <div className="profile-photo">
@@ -58,22 +71,29 @@ function Profile(props) {
 
           <div className="name-ranking">
             <h3>
-              <a href="">
+              <button onClick={() => {
+                setShowDialog(true)
+              }}>
                 Change handle User
-              </a>
-
+              </button>
+              {showDialog ? <DialogBox clickClose={()=>{setShowDialog(false)}}/> : null}
             </h3>
           </div>
 
           <div className="name-ranking">
             <h3>
-              <a href="">Refresh Data</a>
+              <button onClick={async () => {
+                console.log("click")
+                await updateUserData(username)
+              }}>
+                Refresh Data
+              </button>
 
             </h3>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   </>
   )
 }

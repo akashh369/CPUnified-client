@@ -73,7 +73,7 @@ export const options = {
 
 function ProblemsSolved(props) {
   const heatArray = props.heatArray
-  const labels = heatArray.map((data) => moment(data.date.$date).format('DD MMM')).slice(-30)
+  const labels = heatArray.map((data) => moment(data.date).format('DD MMM')).slice(-30)
   const data = {
     labels,
     datasets: [
