@@ -47,6 +47,13 @@ function DialogBox(props) {
         setInputValue(e.target.value);
     };
 
+    function fetchData(e) {
+        if (e.key == "Enter") {
+            console.log(inputValue)
+            setInputValue("")
+        }
+    }
+
     const handleBackgroundClick = (e) => {
         // Close the dialog if the click is outside the dialog box
         // if (e.target.classList.contains('dialog-background')) {
@@ -59,16 +66,22 @@ function DialogBox(props) {
             <div className="dialog-background" onClick={clickClose}>
             </div>
             <div className="dialog-box">
-                <div className="dialog-header">
-                    <span className="close-button">
-                        &times;
-                    </span>
-                </div>
-                <div className="dialog-content">
-                    <label>
-                        Enter your text:
-                        <input type="text" value={inputValue} onChange={handleInputChange} />
-                    </label>
+                <div className="pos-relative">
+                    <div className="dialog-header">
+                        <span className="close-button">
+                            &times;
+                        </span>
+                    </div>
+                    <div className="dialog-content">
+                        <label>
+                            CodeChef Username :
+                            <input id="ip"
+                                type="text"
+                                value={inputValue}
+                                onChange={handleInputChange}
+                                onKeyUp={fetchData} />
+                        </label>
+                    </div>
                 </div>
             </div>
         </>

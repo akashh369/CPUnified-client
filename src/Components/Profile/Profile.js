@@ -4,8 +4,10 @@ import './Profile.scss'
 import DialogBox from '../DialogBox/DialogBox'
 
 function Profile(props) {
-  const { username, userinfo, updateUserData } = props
-  const [ showDialog, setShowDialog ] = useState(false)
+  const { username, userinfo, updateUserData, getUserData } = props
+  const [showDialog, setShowDialog] = useState(false)
+  const [inputBar, setInputBar] = useState(false)
+  const [inputValue, setInputValue] = useState('');
   function updateFunction() {
     console.log("click")
     updateUserData(username)
@@ -18,10 +20,24 @@ function Profile(props) {
   // console.log("updateUserData=",updateUserData)
   console.log("abc")
   const photo = username.Profile
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  function fetchData(e) {
+    if (e.key == "Enter") {
+
+      getUserData(inputValue)
+      setInputValue("")
+      setInputBar(false)
+    }
+  }
+
+
   return (<>
     <div className='profile-container common-container'>
       <div className="profile-photo">
-        <img src={userinfo.profile} />
+        <img src={userinfo.profile} loading='lazy' />
         <a style={{ margin: "0 auto" }} href={`https://www.codechef.com/users/${username}`} target='_blank'>CodeChef Profile</a>
       </div>
       <div className="user-info">
@@ -70,20 +86,21 @@ function Profile(props) {
         <div className="profile-footer">
 
           <div className="name-ranking">
-            <h3>
-              <button onClick={() => {
-                setShowDialog(true)
-              }}>
-                Change handle User
-              </button>
-              {showDialog ? <DialogBox clickClose={()=>{setShowDialog(false)}}/> : null}
-            </h3>
+            {inputBar ?
+              <input type="text" value={inputValue} onChange={handleInputChange} onKeyUp={fetchData} />
+              : <h3>
+                <button onClick={() => {
+                  setInputBar(true)
+                }}>
+                  Change handle User
+                </button>
+                {/* {showDialog ? <DialogBox clickClose={() => { setShowDialog(false) }} /> : null} */}
+              </h3>}
           </div>
 
           <div className="name-ranking">
             <h3>
               <button onClick={async () => {
-                console.log("click")
                 await updateUserData(username)
               }}>
                 Refresh Data

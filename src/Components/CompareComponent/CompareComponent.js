@@ -30,11 +30,27 @@ function CompareComponent() {
     // console.log("userData=", userData)
 
 
-     const updateUserData = function(username){
-        const response = refreshUserData(username).then((res)=>{
+    const updateUserData = async function (username) {
+        setLoading(false)
+        const data = await refreshUserData(username)
+        const response = data.data
+        response.previousContests = response.previousContests.reverse()
+        setUserData(response)
+        setLoading(true)
+        // response.previousContests = response.previousContests.reverse()
+        // setUserData(response)
+    }
+
+    const getUserDataFromService = function (username) {
+        const response = getUserData(username).then((res) => {
             const response = res.data
-            response.previousContests = response.previousContests.reverse()
-            setUserData(response)
+            if (response?.success == false) {
+                alert(userData.error)
+            }
+            else {
+                response.previousContests = response.previousContests.reverse()
+                setUserData(response)
+            }
         })
         // response.previousContests = response.previousContests.reverse()
         // setUserData(response)
@@ -44,7 +60,7 @@ function CompareComponent() {
         <>
             {!loading ?
                 <div className="compare-container">
-                    <Profile username={userData.user.username} userinfo={userData.user.userInfo} updateUserData={updateUserData}/>
+                    <Profile username={userData.user.username} userinfo={userData.user.userInfo} updateUserData={updateUserData} getUserData={getUserDataFromService} />
                     <ContestInfo contestData={userData} />
                     <ProblemsSolved heatArray={userData.user.heatMap} />
                 </div>
