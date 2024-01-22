@@ -22,3 +22,13 @@ export const refreshUserData = async (username = "akashh_bhandar") => {
     console.log("err=", err)
   }}
 }
+
+export const getFacts = async()=>{
+  try{
+    const res=await axios.get('http://localhost:4999/' + `/facts`)
+    return res.data
+  }
+  catch(err){
+
+  }
+}

@@ -3,12 +3,16 @@ import './CompareComponent.css'
 import Profile from '../Profile/Profile'
 import ContestInfo from '../ContestInfo/ContestInfo'
 import ProblemsSolved from '../ProblemsSolved/ProblemsSolved'
-import { getUserData, refreshUserData } from '../../service/codechef.service'
+import { getUserData, refreshUserData, getFacts } from '../../service/codechef.service'
+import codeLoading from '../../assets/contentLoading.gif'
+import scrapping from '../../assets/mining.gif'
+function CompareComponent(props) {
 
-function CompareComponent() {
 
     const [userData, setUserData] = useState(undefined)
     const [loading, setLoading] = useState(true)
+    const [currentFact, setCurrentFact] = useState()
+    const [showFactInfo, setShowFactInfo] = useState(false)
     useEffect(() => {
         setLoading(true)
         getUserData().then((res) => {
@@ -31,30 +35,54 @@ function CompareComponent() {
 
 
     const updateUserData = async function (username) {
-        setLoading(false)
+        await getFactsFromService()
+        setLoading(true)
         const data = await refreshUserData(username)
         const response = data.data
         response.previousContests = response.previousContests.reverse()
         setUserData(response)
-        setLoading(true)
+        setLoading(false)
         // response.previousContests = response.previousContests.reverse()
         // setUserData(response)
     }
 
-    const getUserDataFromService = function (username) {
-        const response = getUserData(username).then((res) => {
-            const response = res.data
-            if (response?.success == false) {
-                alert(userData.error)
-            }
-            else {
-                response.previousContests = response.previousContests.reverse()
-                setUserData(response)
-            }
-        })
+    const getUserDataFromService = async function (username) {
+        await getFactsFromService()
+        setLoading(true)
+        const data = await getUserData(username)
+        const response = data.data
+        if (response?.success == false) {
+            alert(response.error)
+        }
+        else {
+            response.previousContests = response.previousContests.reverse()
+            setUserData(response)
+        }
+        setLoading(false)
+
         // response.previousContests = response.previousContests.reverse()
         // setUserData(response)
     }
+
+    function getFactsFromService() {                    
+        getFacts().then((facts) => {
+            let i = 0;
+            // console.log(facts[0])
+            facts.forEach((fact, index) => {
+                console.log("i=", index)
+                setTimeout(() => {
+                    console.log("fact", fact.fact)
+                    setCurrentFact(fact.fact)
+                    if (index + 1 == facts.length && loading == true) {
+                        getFactsFromService()
+                    }
+                    // setCurrentFact(fact)
+                }, 8000 * (index))
+            })
+        })
+
+    }
+
 
     return (
         <>
@@ -64,7 +92,20 @@ function CompareComponent() {
                     <ContestInfo contestData={userData} />
                     <ProblemsSolved heatArray={userData.user.heatMap} />
                 </div>
-                : <div></div>
+                : <div className='data-loading common-container'>
+                    <div className="allignement">
+                        <div className="gif-text">
+                            <h2>Scrapping your data from The Web</h2>
+                            {/* <img src={scrapping} /> */}
+                        </div>
+                        <div >
+                            <img src={codeLoading} height={"3px"} />
+                        </div>
+                        <h1>Did You Know</h1>
+                        <h3 onClick={() => { setShowFactInfo(!showFactInfo) }}>{currentFact?.fact}</h3>
+                        {showFactInfo ? <h4>{currentFact?.info}</h4> : null}
+                    </div>
+                </div>
             }
         </>
     )

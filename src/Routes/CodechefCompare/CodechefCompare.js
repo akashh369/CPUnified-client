@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './CodechefCompare.css'
 import CompareComponent from '../../Components/CompareComponent/CompareComponent';
 
 function CodechefCompare() {
+    const [user1, setUser1] = useState()
+    const [user2, setUser2] = useState()
+
     document.addEventListener('mousemove', async event => {
         const dummyMouse = document.querySelector('.dummy-mouse');
         const vwby2 = window.innerWidth / 2
@@ -17,6 +20,10 @@ function CodechefCompare() {
 
     })
 
+    const updateUserData = (userNumber, user) => {
+        console.log("userNumber",userNumber , user)
+    }
+
     return (
         <>
             <div className="dummy-mouse">
@@ -24,9 +31,9 @@ function CodechefCompare() {
             </div>
             <div className="main-container">
                 <div className="container-left">
-                    <CompareComponent />
+                    <CompareComponent  />
                 </div>
-                <div className="container-right">
+                <div className="container-right" >
                     <CompareComponent />
                 </div>
             </div>
