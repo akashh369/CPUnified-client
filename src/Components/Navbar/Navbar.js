@@ -9,7 +9,7 @@ const Navbar = () => {
       <AppBar sx={{position : 'fixed',marginBottom : '10px'}}>   {/*check what should be the position */}
         <Toolbar className="navClass">
           <NavLink
-            to="/"
+            to="/all"
             className={({ isActive }) =>
               {;return isActive ? "activeNavElement" : "navElement"}
             }

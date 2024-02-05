@@ -15,7 +15,7 @@ export const InfoPage = (props) => {
   const page=currentPage()
   function currentPage(){
     switch(path){
-      case "/":{
+      case "/all":{
         return "all"
       }
       case "/codechef":{
