@@ -9,11 +9,10 @@ export function codeChefContestData(){
     const hitUrl=url + "/contests/codechef";
     axios.get(hitUrl)
         .then((response)=>{
-            console.log(response)
             return response.data;
         })
         .catch((error)=>{
-            console.log(error);
+            alert(error)
             return error;
         })
 }

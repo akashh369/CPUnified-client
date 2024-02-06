@@ -49,7 +49,6 @@ function DialogBox(props) {
 
     function fetchData(e) {
         if (e.key == "Enter") {
-            console.log(inputValue)
             setInputValue("")
         }
     }

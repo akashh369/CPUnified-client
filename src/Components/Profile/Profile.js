@@ -9,16 +9,12 @@ function Profile(props) {
   const [inputBar, setInputBar] = useState(false)
   const [inputValue, setInputValue] = useState('');
   function updateFunction() {
-    console.log("click")
     updateUserData(username)
   }
   function toggleDialogBox() {
     // showDialog ? setShowDialog(false) : setShowDialog(true)
     // setShowDialog(true)
-    console.log("showDialog")
   }
-  // console.log("updateUserData=",updateUserData)
-  console.log("abc")
   const photo = username.Profile
   const handleInputChange = (e) => {
     setInputValue(e.target.value);

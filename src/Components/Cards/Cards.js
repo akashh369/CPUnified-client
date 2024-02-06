@@ -28,7 +28,6 @@ const Cards = (props) => {
         </CardContent>
              <CardActions sx={{alignContent : 'center'}}>        {/*change this to center */}
             <Button variant='contained' size="medium" onClick={()=>{
-                console.log("Clicked")
             }}>Register</Button>
         </CardActions>
     </Card>

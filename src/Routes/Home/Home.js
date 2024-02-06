@@ -12,7 +12,6 @@ const Home = () => {
     event.preventDefault();
     // const form=document.getElementById('form')
     // form.reset()
-    console.log("un,pw", name, password);
 
     await loginUser(name, password);
   }

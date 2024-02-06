@@ -8,18 +8,16 @@ import { useEffect } from "react";
 import { redirectIfPathInvalid } from "./service/constants";
 
 function App() {
-  console.log("start");
   const path = window.location.pathname;
-  console.log("location");
 
-  useEffect(()=>{
-    redirectIfPathInvalid()
-  } )
+  useEffect(() => {
+    redirectIfPathInvalid();
+  });
 
   return (
     <>
       {/* lets try having a hacker theme */}
-      {path == "/" ?(
+      {path == "/" ? (
         <Routes>
           <Route path="/" element={<Home />}></Route>
         </Routes>

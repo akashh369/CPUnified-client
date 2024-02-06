@@ -12,7 +12,6 @@ export const loginUser = async (username, password) => {
         window.localStorage.setItem('token',res.data.token)
         window.location.href =
           completeLocation.slice(0, completeLocation.lastIndexOf("/")) + "/all";
-        console.log("url", window.location.href);
       }
     })
     .catch((err) => {

@@ -20,10 +20,9 @@ function CompareComponent(props) {
             response.previousContests = response.previousContests.reverse()
             setUserData(response)
 
-            console.log(userData, res.data)
         })
             .catch(err => {
-                console.log("err", err)
+                alert(err)
             })
     }, [])
 
@@ -31,7 +30,6 @@ function CompareComponent(props) {
         if (userData != undefined)
             setLoading(false)
     }, [userData])
-    // console.log("userData=", userData)
 
 
     const updateUserData = async function (username) {
@@ -67,11 +65,8 @@ function CompareComponent(props) {
     function getFactsFromService() {                    
         getFacts().then((facts) => {
             let i = 0;
-            // console.log(facts[0])
             facts.forEach((fact, index) => {
-                console.log("i=", index)
                 setTimeout(() => {
-                    console.log("fact", fact.fact)
                     setCurrentFact(fact.fact)
                     if (index + 1 == facts.length && loading == true) {
                         getFactsFromService()

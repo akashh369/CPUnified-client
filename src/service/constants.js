@@ -12,11 +12,8 @@ export const redirectIfPathInvalid = () => {
   const pathTruthy = Object.values(allDefinedPaths).find(
     (path) => path == location
   );
-  console.log(
-    "check",
-    completeLocation.slice(0,completeLocation.lastIndexOf("/"))
-  );
   if (!pathTruthy) {
-    window.location.href=completeLocation.slice(0,completeLocation.lastIndexOf("/")) + '/'
+    window.location.href =
+      completeLocation.slice(0, completeLocation.lastIndexOf("/")) + "/";
   }
 };
