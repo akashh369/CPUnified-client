@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../config/axios-config"
 
 const url = "http://localhost:4999/";
 
@@ -8,13 +8,11 @@ export const loginUser = async (username, password) => {
     .post(`${url}/login`, { username, password })
     .then((res) => {
       //redirect if login successfull
-      if (res.data.loggedIn == true) {
-        // window.location.href = "";
-        // console.log("done", res.data);
+      if (res.data.token) {
+        window.localStorage.setItem('token',res.data.token)
         window.location.href =
           completeLocation.slice(0, completeLocation.lastIndexOf("/")) + "/all";
         console.log("url", window.location.href);
-        // console.log("location", window.location.href);
       }
     })
     .catch((err) => {

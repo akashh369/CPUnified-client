@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "../config/axios-config"
 
 
 const url = 'http://localhost:4999/' + 'codechef'

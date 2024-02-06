@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import Cards from '../../Components/Cards/Cards'
 import { useLocation } from 'react-router-dom'
-import axios from 'axios'
+import axios from '../../config/axios-config'
 import "./InfoPage.css"
 import dots from "../../assets/3dots.gif"
 import codeLoading from "../../assets/cardsLoading.gif"
