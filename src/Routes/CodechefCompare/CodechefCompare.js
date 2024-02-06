@@ -9,7 +9,7 @@ function CodechefCompare() {
   document.addEventListener("mousemove", async (event) => {
     const dummyMouse = document.querySelector(".dummy-mouse");
     const vwby2 = window.innerWidth / 2;
-    const reqvw = vwby2 - 10;
+    const reqvw = vwby2 - 30;
     if (dummyMouse) {
       // <-- moved the if outside, no need for an event listener if the element is not available
       document.addEventListener("mousemove", (event) => {

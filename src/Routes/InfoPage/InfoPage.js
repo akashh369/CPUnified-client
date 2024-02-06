@@ -103,7 +103,8 @@ export const InfoPage = (props) => {
           </div>
         </>
       ) : (
-        alert("no live contests")
+        // alert("no live contests")
+        ""
       )}
       {upcoming.length != 0 ? (
         <>
@@ -121,7 +122,8 @@ export const InfoPage = (props) => {
           </div>
         </>
       ) : (
-        alert.log("no live contests")
+        // alert("no live contests")
+        ""
       )}
     </div>
   );

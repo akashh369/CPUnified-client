@@ -8,7 +8,7 @@ export const getUserData = async (username = "akashh_bhandar") => {
       const res = await axios.get(url + `/user/?username=${username}`);
       return res.data;
     } catch (err) {
-      alert(err);
+      // alert(err);
     }
   }
 };
@@ -21,7 +21,7 @@ export const refreshUserData = async (username = "akashh_bhandar") => {
       });
       return res.data;
     } catch (err) {
-      alert(err);
+      // alert(err);
     }
   }
 };
