@@ -42,3 +42,14 @@
     }
     /* background-color: red; */
 }
+
+.compare-graph-container{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: var(--secondary-color);
+    height: 70vh;
+    width:70vw;
+    z-index: 5;
+}

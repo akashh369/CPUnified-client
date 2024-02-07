@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CodechefCompare.css";
 import CompareComponent from "../../Components/CompareComponent/CompareComponent";
 
 function CodechefCompare() {
-  const [user1, setUser1] = useState();
-  const [user2, setUser2] = useState();
 
   document.addEventListener("mousemove", async (event) => {
     const dummyMouse = document.querySelector(".dummy-mouse");

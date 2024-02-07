@@ -9,7 +9,8 @@ instance.interceptors.request.use((config) => {
     config.headers["Authorization"] = "Bearer " + token;
   } else {
     alert("session timeout please login again");
-    window.location.href = window.location.href + "forceful-redirect";
+    //redirect to login page
+    // window.location.href = window.location.href + "forceful-redirect";
   }
   return config;
 });

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ContestInfo.css";
 
 import {
@@ -12,6 +12,7 @@ import {
 } from "chart.js";
 
 import { Bar } from "react-chartjs-2";
+import { getCodechefUsers } from "../../service/codechef.service";
 
 ChartJS.register(
   CategoryScale,
@@ -41,7 +42,22 @@ const chartAreaBorder = {
 };
 
 function ContestInfo(props) {
+  const [showGraphCompare,setShowGraphCompare]=useState(false)
+  let user1,user2
   const contestData = props.contestData;
+
+  useEffect(() => {
+   getCodechefUsers().then((res)=>{
+     user1=res.data.user1[0]
+     user2=res.data.user2[0]
+
+    console.log('users',user1,user2);
+   })
+   .catch(err =>{
+
+   })
+  }, [])
+  
 
   const options = {
     indexAxis: "y",
@@ -137,11 +153,17 @@ function ContestInfo(props) {
         <h1>Rating Graph</h1>
         <div className="bar-graph">
           <Bar options={options} data={data} />
-          <div className="compare-button">
+          <div className="compare-button" onClick={()=>{setShowGraphCompare(!showGraphCompare)}}>
             <a>compare</a>
           </div>
         </div>
       </div>
+      {showGraphCompare ? 
+      <div className="compare-graph-container">
+
+      </div>
+      : ""}
+      
     </>
   );
 }
