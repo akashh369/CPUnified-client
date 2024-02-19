@@ -6,6 +6,7 @@ import CodechefCompare from "./Routes/CodechefCompare/CodechefCompare";
 import Home from "./Routes/Home/Home";
 import { useEffect } from "react";
 import { redirectIfPathInvalid } from "./service/constants";
+import { PATHS } from "./commonService/enum";
 
 function App() {
   const path = window.location.pathname;
@@ -17,22 +18,22 @@ function App() {
   return (
     <>
       {/* lets try having a hacker theme */}
-      {path == "/" ? (
+      {path == ` ${PATHS.LANDING_PAGE}` ? (
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path={PATHS.LANDING_PAGE} element={<Home />}></Route>
         </Routes>
       ) : (
         <>
           <Navbar style />
           <div style={{ marginTop: "100px" }}>
             <Routes>
-              <Route path="/all" element={<InfoPage />}></Route>
-              <Route path="/codechef" element={<InfoPage />}></Route>
-              <Route path="/hackerearth" element={<InfoPage />}></Route>
-              <Route path="/codeforces" element={<InfoPage />}></Route>
-              <Route path="/leetcode" element={<InfoPage />}></Route>
+              <Route path={PATHS.ALL} element={<InfoPage />}></Route>
+              <Route path={PATHS.CODECHEF} element={<InfoPage />}></Route>
+              <Route path={PATHS.HACKEREARTH} element={<InfoPage />}></Route>
+              <Route path={PATHS.CODEFORCES} element={<InfoPage />}></Route>
+              <Route path={PATHS.LEETCODE} element={<InfoPage />}></Route>
               <Route
-                path="/codechef-compare"
+                path={PATHS.CODECHEF_COMPARE}
                 element={<CodechefCompare />}
               ></Route>
             </Routes>
