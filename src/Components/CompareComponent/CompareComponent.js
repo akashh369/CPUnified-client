@@ -81,13 +81,13 @@ function CompareComponent(props) {
       {!loading ? (
         <div className="compare-container">
           <Profile
-            username={userData.user.username}
-            userinfo={userData.user.userInfo}
+            username={userData.username}
+            userinfo={userData.userInfo}
             updateUserData={updateUserData}
             getUserData={getUserDataFromService}
           />
           <ContestInfo contestData={userData} />
-          <ProblemsSolved heatArray={userData.user.heatMap} />
+          <ProblemsSolved heatArray={userData.heatMap} />
         </div>
       ) : (
         <div className="data-loading common-container">

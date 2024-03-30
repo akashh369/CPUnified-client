@@ -5,5 +5,5 @@ export const PATHS = {
     CODEFORCES: "/codeforces",
     LEETCODE: "/leetcode",
     CODECHEF_COMPARE: "/codechef-compare",
-    LANDING_PAGE: "/"
+    LANDING_PAGE: "/login-singup"
 }

@@ -13,12 +13,14 @@ function App() {
 
   useEffect(() => {
     redirectIfPathInvalid();
+    console.log("path", path);
   });
+
 
   return (
     <>
       {/* lets try having a hacker theme */}
-      {path == ` ${PATHS.LANDING_PAGE}` ? (
+      {path == `${PATHS.LANDING_PAGE}` ? (
         <Routes>
           <Route path={PATHS.LANDING_PAGE} element={<Home />}></Route>
         </Routes>
