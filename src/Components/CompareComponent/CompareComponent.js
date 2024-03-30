@@ -10,14 +10,25 @@ import {
 } from "../../service/codechef.service";
 import codeLoading from "../../assets/contentLoading.gif";
 import scrapping from "../../assets/mining.gif";
+import { STORAGE_KEYS } from "../../commonService/enum";
 function CompareComponent(props) {
+  const ccUserRefNumber = props.ccUserRefNumber;
   const [userData, setUserData] = useState(undefined);
   const [loading, setLoading] = useState(true);
   const [currentFact, setCurrentFact] = useState();
   const [showFactInfo, setShowFactInfo] = useState(false);
   useEffect(() => {
+    let currentCompareUser;
+    switch (ccUserRefNumber) {
+      case 1:
+        currentCompareUser = localStorage.getItem(STORAGE_KEYS.CC_USER1);
+        break;
+      case 2:
+        currentCompareUser = localStorage.getItem(STORAGE_KEYS.CC_USER2);
+        break;
+    }
     setLoading(true);
-    getUserData()
+    getUserData(currentCompareUser)
       .then((res) => {
         let response = res.data;
         response.previousContests = response.previousContests.reverse();
@@ -31,6 +42,17 @@ function CompareComponent(props) {
   useEffect(() => {
     if (userData != undefined) setLoading(false);
   }, [userData]);
+
+  function updateCCUserInLocalStorage(username) {
+    switch (ccUserRefNumber) {
+      case 1:
+        window.localStorage.setItem(STORAGE_KEYS.CC_USER1, username);
+        break;
+      case 2:
+        window.localStorage.setItem(STORAGE_KEYS.CC_USER2, username);
+        break;
+    }
+  }
 
   const updateUserData = async function (username) {
     await getFactsFromService();
@@ -47,13 +69,14 @@ function CompareComponent(props) {
   const getUserDataFromService = async function (username) {
     await getFactsFromService();
     setLoading(true);
-    const data = await getUserData(username);
+    const data = await getUserData(username, ccUserRefNumber);
     const response = data.data;
     if (response?.success == false) {
       // alert(response.error)
     } else {
       response.previousContests = response.previousContests.reverse();
       setUserData(response);
+      updateCCUserInLocalStorage(username);
     }
     setLoading(false);
 

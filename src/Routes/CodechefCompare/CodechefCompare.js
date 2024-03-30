@@ -26,10 +26,10 @@ function CodechefCompare() {
       <div className="dummy-mouse"></div>
       <div className="main-container">
         <div className="container-left">
-          <CompareComponent />
+          <CompareComponent ccUserRefNumber={1}/>
         </div>
         <div className="container-right">
-          <CompareComponent />
+          <CompareComponent ccUserRefNumber={2}/>
         </div>
       </div>
     </>

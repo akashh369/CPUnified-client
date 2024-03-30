@@ -1,3 +1,4 @@
+import { PATHS, STORAGE_KEYS } from "../commonService/enum";
 import axios from "../config/axios-config";
 
 const url = "http://localhost:4999/";
@@ -9,9 +10,11 @@ export const loginUser = async (username, password) => {
     .then((res) => {
       //redirect if login successfull
       if (res.data.token) {
-        window.localStorage.setItem("token", res.data.token);
+        window.localStorage.setItem(STORAGE_KEYS.TOKEN, res.data.token);
+        window.localStorage.setItem(STORAGE_KEYS.CC_USER1,res.data?.ccCompareUser1);
+        window.localStorage.setItem(STORAGE_KEYS.CC_USER2,res.data?.ccCompareUser2);
         window.location.href =
-          completeLocation.slice(0, completeLocation.lastIndexOf("/")) + "/all";
+          completeLocation.slice(0, completeLocation.lastIndexOf("/")) + PATHS.CODECHEF_COMPARE;
       }
       //alert if user not found
       else if (res.data?.userNotFound) {

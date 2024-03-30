@@ -22,7 +22,6 @@ function Profile(props) {
 
   function fetchData(e) {
     if (e.key == "Enter") {
-
       getUserData(inputValue)
       setInputValue("")
       setInputBar(false)

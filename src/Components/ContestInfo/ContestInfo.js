@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import DialogCompareComponent from '../DialogCompareComponent/DialogCompareComponent'
 import "./ContestInfo.css";
 
 import {
@@ -42,22 +43,26 @@ const chartAreaBorder = {
 };
 
 function ContestInfo(props) {
-  const [showGraphCompare,setShowGraphCompare]=useState(false)
-  let user1,user2
+  const [showGraphCompare, setShowGraphCompare] = useState(false)
+  let user1, user2
   const contestData = props.contestData;
 
   useEffect(() => {
-   getCodechefUsers().then((res)=>{
-     user1=res.data.user1[0]
-     user2=res.data.user2[0]
+    getCodechefUsers().then((res) => {
+      user1 = res.data.user1[0]
+      user2 = res.data.user2[0]
 
-    console.log('users',user1,user2);
-   })
-   .catch(err =>{
+      console.log('users', user1, user2);
+    })
+      .catch(err => {
 
-   })
-  }, [])
-  
+      })
+  }, []);
+
+  const enableDisableDialog = () => {
+    setShowGraphCompare(!showGraphCompare)
+  };
+
 
   const options = {
     indexAxis: "y",
@@ -153,17 +158,15 @@ function ContestInfo(props) {
         <h1>Rating Graph</h1>
         <div className="bar-graph">
           <Bar options={options} data={data} />
-          <div className="compare-button" onClick={()=>{setShowGraphCompare(!showGraphCompare)}}>
+          <div className="compare-button" onClick={()=>{ enableDisableDialog()}}>
             <a>compare</a>
           </div>
         </div>
       </div>
-      {showGraphCompare ? 
-      <div className="compare-graph-container">
+      {showGraphCompare ?
+        <DialogCompareComponent enableDisableDialog={() => {enableDisableDialog() }} />
+        : ""}
 
-      </div>
-      : ""}
-      
     </>
   );
 }
