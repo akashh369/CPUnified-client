@@ -22,7 +22,6 @@ function Profile(props) {
 
   function fetchData(e) {
     if (e.key == "Enter") {
-
       getUserData(inputValue)
       setInputValue("")
       setInputBar(false)
@@ -32,30 +31,30 @@ function Profile(props) {
     //console.log(stars[0])
     if(stars[0]==1)
     {
-      return 'rgb(102,102,102)';
+      return 'var(--one-star)';
     }
     else if(stars[0]==2)
     {
-      return 'rgb(30,125,34)';
+      return 'var(--two-star)';
     }
     else if(stars[0]==3)
     {
-      return 'rgb(51,102,204)';
+      return 'var(--three-star)';
     }
     else if(stars[0]==4)
     {
-      return 'rgb(129,91,140)';
+      return 'var(--four-star)';
     }
     else if(stars[0]==5)
     {
-      return 'rgb(255,216,25)';
+      return 'var(--five-star)';
     }
     else if(stars[0]==6)
     {
-      return 'rgb(255,152,25)';
+      return 'var(--six-star)';
     }
     else{
-      return 'rgb(233,26,52)';
+      return 'var(--seven-star)';
     }
     
   };

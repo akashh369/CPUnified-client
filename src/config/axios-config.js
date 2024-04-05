@@ -1,11 +1,11 @@
 import axios from "axios";
-import { PATHS } from "../commonService/enum";
+import { PATHS, STORAGE_KEYS } from "../commonService/enum";
 
 const instance = axios.create();
 instance.interceptors.request.use((config) => {
   if (window.location.pathname == PATHS.LANDING_PAGE) return config;
 
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem(STORAGE_KEYS.TOKEN);
   if (token) {
     config.headers["Authorization"] = "Bearer " + token;
   } else {
@@ -19,9 +19,10 @@ instance.interceptors.request.use((config) => {
 
 instance.interceptors.response.use((config) => {
   if (config.data?.sessionExpired) {
-    window.localStorage.removeItem('token')
+    window.localStorage.removeItem(STORAGE_KEYS.TOKEN);
+    
   }
-  return config
+  return config;
 })
 
 export default instance;

@@ -1,17 +1,25 @@
-.activeNavPage{
+.activeNavPage {
     color: azure;
 }
 
-.navClass{
+.navClass {
     background-color: var(--primary-color);
     display: flex;
+    flex: 1;
+    justify-content: space-between;
 }
 
-.navElement{
+.navElement {
     padding: 10px 20px;
     color: var(--text-color-primary);
 }
-a.activeNavElement{
+
+a.activeNavElement {
     padding: 10px 20px;
     color: var(--text-color-secondary);
+}
+
+.nav-elements {
+    background-color: var(--primary-color);
+    display: flex;
 }

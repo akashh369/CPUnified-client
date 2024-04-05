@@ -3,10 +3,10 @@ import axios from "../config/axios-config";
 const appUrl = "http://localhost:4999/";
 const url = appUrl + "codechef";
 
-export const getUserData = async (username = "akashh_bhandar") => {
+export const getUserData = async (username = "akashh_bhandar", ccUserRefNumber="NA") => {
   if (typeof username == "string") {
     try {
-      const res = await axios.get(url + `/user/?username=${username}`);
+      const res = await axios.get(url + `/user/?username=${username}&ccUserRefNumber=${ccUserRefNumber}`);
       return res.data;
     } catch (err) {
       // alert(err);
@@ -31,12 +31,12 @@ export const getFacts = async () => {
   try {
     const res = await axios.get(appUrl + `/facts`);
     return res.data;
-  } catch (err) {}
+  } catch (err) { }
 };
 
 export const getCodechefUsers = async () => {
   try {
     const res = await axios.get(url + "/getUsers");
     return res.data;
-  } catch (err) {}
+  } catch (err) { }
 };
