@@ -3,7 +3,7 @@ import axios from "../config/axios-config";
 const appUrl = "http://localhost:4999/";
 const url = appUrl + "codechef";
 
-export const getUserData = async (username = "akashh_bhandar", ccUserRefNumber="NA") => {
+export const getUserData = async (username = "akashh_bhandar", ccUserRefNumber = "NA") => {
   if (typeof username == "string") {
     try {
       const res = await axios.get(url + `/user/?username=${username}&ccUserRefNumber=${ccUserRefNumber}`);
@@ -40,3 +40,10 @@ export const getCodechefUsers = async () => {
     return res.data;
   } catch (err) { }
 };
+
+export const getCCContestData = async (ccUserRef1, ccUserRef2) => {
+  try {
+    const res = await axios.post(url + '/cc-contest-compare-data', { ccUserRef1, ccUserRef2 });
+    return res.data;
+  } catch (err) { }
+}

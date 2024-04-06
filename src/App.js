@@ -31,7 +31,6 @@ function App() {
             <Routes>
               <Route path={PATHS.ALL} element={<InfoPage />}></Route>
               <Route path={PATHS.CODECHEF} element={<InfoPage />}></Route>
-              <Route path={PATHS.HACKEREARTH} element={<InfoPage />}></Route>
               <Route path={PATHS.CODEFORCES} element={<InfoPage />}></Route>
               <Route path={PATHS.LEETCODE} element={<InfoPage />}></Route>
               <Route

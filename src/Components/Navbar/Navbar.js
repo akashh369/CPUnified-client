@@ -38,13 +38,6 @@ const Navbar = () => {
               <Typography>CODEFORCES</Typography>
             </NavLink>
 
-            <NavLink to={PATHS.HACKEREARTH}
-              className={({ isActive }) =>
-                isActive ? "activeNavElement" : "navElement"
-              }
-            >
-              <Typography>HACKEREARTH</Typography>
-            </NavLink>
             <NavLink to={PATHS.LEETCODE}
               className={({ isActive }) =>
                 isActive ? "activeNavElement" : "navElement"

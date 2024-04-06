@@ -5,71 +5,57 @@ import axios from "../../config/axios-config";
 import "./InfoPage.css";
 import dots from "../../assets/3dots.gif";
 import codeLoading from "../../assets/cardsLoading.gif";
+import { getAllContests } from "../../commonService/commonService";
 
 export const InfoPage = (props) => {
   const location = useLocation();
-  const path = location.pathname;
+
+  const path = location.pathname.slice(1);
+
   const [upcoming, setUpcoming] = useState([]);
   const [live, setLive] = useState([]);
   const [loading, setLoading] = useState(true);
-  const page = currentPage();
-  function currentPage() {
-    switch (path) {
-      case "/all": {
-        return "all";
-      }
-      case "/codechef": {
-        return "code_chef";
-      }
-      case "/hackerearth": {
-        return "hacker_earth";
-      }
-      case "/codeforces": {
-        return "codeforces";
-      }
-      case "/leetcode": {
-        return "leet_code";
-      }
-      default: {
-        return "all";
-      }
-    }
-  }
-  async function getData() {
-    setLive([]);
-    setUpcoming([]);
-    let flag = false;
-    setLoading(true);
-    setTimeout(() => {
-      if (fetchData) {
-        setLoading(false);
-        flag = true;
-      }
-    }, 1000);
-    const startTime = performance.now();
-    var fetchData = await axios.get(`https://kontests.net/api/v1/${page}`);
-    const endTime = performance.now();
-    if (endTime - startTime > 1000) {
-      setLoading(false);
-      flag = true;
-    }
-    let interval = setInterval(() => {
-      if (flag) {
-        const upcomingContests = [],
-          liveContests = [];
-        fetchData.data.forEach((cardData) => {
-          cardData.status.toLowerCase() == "before"
-            ? upcomingContests.push(cardData)
-            : liveContests.push(cardData);
-        });
-        setLive(liveContests);
-        setUpcoming(upcomingContests);
-        clearInterval(interval);
-      }
-    }, 100);
-  }
+
+
+
+  // async function getData() {
+  //   setLive([]);
+  //   setUpcoming([]);
+  //   let flag = false;
+  //   setLoading(true);
+  //   setTimeout(() => {
+  //     if (fetchData) {
+  //       setLoading(false);
+  //       flag = true;
+  //     }
+  //   }, 1000);
+  //   const startTime = performance.now();
+  //   var fetchData = await axios.get(`https://kontests.net/api/v1/${page}`);
+  //   const endTime = performance.now();
+  //   if (endTime - startTime > 1000) {
+  //     setLoading(false);
+  //     flag = true;
+  //   }
+  //   let interval = setInterval(() => {
+  //     if (flag) {
+  //       const upcomingContests = [],
+  //         liveContests = [];
+  //       fetchData.data.forEach((cardData) => {
+  //         cardData.status.toLowerCase() == "before"
+  //           ? upcomingContests.push(cardData)
+  //           : liveContests.push(cardData);
+  //       });
+  //       setLive(liveContests);
+  //       setUpcoming(upcomingContests);
+  //       clearInterval(interval);
+  //     }
+  //   }, 100);
+  // }
+
   useEffect(() => {
-    getData();
+    getAllContests(path).then(res =>{
+      const data=res.data;
+    });
   }, [location.pathname]);
   return (
     <div className="contestContainer">

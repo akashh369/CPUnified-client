@@ -1,18 +1,11 @@
 import axios from 'axios';
 
-const localUrl='http://localhost:5000'
-const webUrl=''
-const url=localUrl
+const url = 'http://localhost:4999'
 
 
-export function codeChefContestData(){
-    const hitUrl=url + "/contests/codechef";
-    axios.get(hitUrl)
-        .then((response)=>{
-            return response.data;
-        })
-        .catch((error)=>{
-            alert(error)
-            return error;
-        })
+export const getAllContests = async (platformName) => {
+    // try {
+    //     const res = await axios.get(url + `/contests/${platformName}`);
+    //     return res.data;
+    // } catch (error) { }
 }

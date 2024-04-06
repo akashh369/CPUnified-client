@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Profile.scss'
+import dummyProfile from '../../../src/assets/download.png'
 
 import DialogBox from '../DialogBox/DialogBox'
 
@@ -32,8 +33,8 @@ function Profile(props) {
   return (<>
     <div className='profile-container common-container'>
       <div className="profile-photo">
-        <img src={userinfo.profile} loading='lazy' />
-        <a style={{ margin: "0 auto" }} href={`https://www.codechef.com/users/${username}`} target='_blank'>CodeChef Profile</a>
+        <img src={userinfo.profile } loading='lazy' />
+        {/* <img src={dummyProfile} loading='lazy' /> */}
       </div>
       <div className="user-info">
         <div className="name-star-rating">
@@ -79,8 +80,16 @@ function Profile(props) {
 
 
         <div className="profile-footer">
+          <div>
+            <h3>
+              <button>
+                {/* <a href={`https://www.codechef.com/users/${username}`} target='_blank'>CodeChef Profile</a> */}
+                CodeChef Profile
+              </button>
+            </h3>
+          </div>
 
-          <div className="name-ranking">
+          <div className="">
             {inputBar ?
               <input type="text" value={inputValue} onChange={handleInputChange} onKeyUp={fetchData} />
               : <h3>
@@ -93,7 +102,7 @@ function Profile(props) {
               </h3>}
           </div>
 
-          <div className="name-ranking">
+          <div className="">
             <h3>
               <button onClick={async () => {
                 await updateUserData(username)
