@@ -11,7 +11,26 @@
   --text-color-secondary: #f1a22b;
   --text-color-secondary-dark: rgb(229, 181, 25);
   --text-color-white: #fff;
+
+  --one-star:grey;
+  --two-star:green;
+  --three-star:rgb(29, 124, 219);
+  --four-star:rgb(64, 17, 103);
+  --five-star:rgb(247, 218, 0);
+  --six-star:rgb(255, 136, 0);
+  --seven-star:rgb(255, 0, 0);
+
 }
+:cstar{
+  --one-star:grey;
+  --two-star:green;
+  --three-star:rgb(29, 124, 219);
+  --four-star:rgb(64, 17, 103);
+  --five-star:rgb(247, 218, 0);
+  --six-star:rgb(255, 136, 0);
+  --seven-star:rgb(255, 0, 0);
+}
+
 
 body {
   color: var(--text-color-primary);

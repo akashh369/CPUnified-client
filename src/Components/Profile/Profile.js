@@ -28,6 +28,37 @@ function Profile(props) {
       setInputBar(false)
     }
   }
+  const getStarColor = (stars) => {
+    //console.log(stars[0])
+    if(stars[0]==1)
+    {
+      return 'var(--one-star)';
+    }
+    else if(stars[0]==2)
+    {
+      return 'var(--two-star)';
+    }
+    else if(stars[0]==3)
+    {
+      return 'var(--three-star)';
+    }
+    else if(stars[0]==4)
+    {
+      return 'var(--four-star)';
+    }
+    else if(stars[0]==5)
+    {
+      return 'var(--five-star)';
+    }
+    else if(stars[0]==6)
+    {
+      return 'var(--six-star)';
+    }
+    else{
+      return 'var(--seven-star)';
+    }
+    
+  };
 
 
   return (<>
@@ -41,11 +72,9 @@ function Profile(props) {
           <div className="name-ranking">
             <h3>Name : </h3>{userinfo.name}
           </div>
-          <div className="stars">
-            {
-              userinfo.stars
-            }
-          </div>
+          <div className="stars" style={{ color: getStarColor(userinfo.stars) }}>
+          {userinfo.stars}
+        </div>
         </div>
 
         <div className="name-ranking">
