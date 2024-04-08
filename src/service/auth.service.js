@@ -1,18 +1,18 @@
 import { PATHS, STORAGE_KEYS } from "../commonService/enum";
 import axios from "../config/axios-config";
+import { API_URL } from "../commonService/enum";
 
-const url = "http://localhost:4999/";
 
 export const loginUser = async (username, password) => {
   const completeLocation = window.location.href;
   await axios
-    .post(`${url}/login`, { username, password })
+    .post(`${API_URL}/login`, { username, password })
     .then((res) => {
       //redirect if login successfull
       if (res.data.token) {
         window.localStorage.setItem(STORAGE_KEYS.TOKEN, res.data.token);
-        window.localStorage.setItem(STORAGE_KEYS.CC_USER1,res.data?.ccCompareUser1);
-        window.localStorage.setItem(STORAGE_KEYS.CC_USER2,res.data?.ccCompareUser2);
+        window.localStorage.setItem(STORAGE_KEYS.CC_USER1, res.data?.ccCompareUser1);
+        window.localStorage.setItem(STORAGE_KEYS.CC_USER2, res.data?.ccCompareUser2);
         window.location.href =
           completeLocation.slice(0, completeLocation.lastIndexOf("/")) + PATHS.CODECHEF_COMPARE;
       }
@@ -32,7 +32,7 @@ export const loginUser = async (username, password) => {
 
 export const registerUser = (username, password, codechefUsername) => {
   axios
-    .post(`${url}register`, {
+    .post(`${API_URL}/register`, {
       username,
       password,
       codechefUsername,

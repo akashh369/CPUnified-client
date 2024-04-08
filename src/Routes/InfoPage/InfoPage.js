@@ -5,15 +5,20 @@ import axios from "../../config/axios-config";
 import "./InfoPage.css";
 import dots from "../../assets/3dots.gif";
 import codeLoading from "../../assets/cardsLoading.gif";
-import { getAllContests } from "../../commonService/commonService";
+import { getAllContests } from "../../service/contestInfo.service";
 
 export const InfoPage = (props) => {
   const location = useLocation();
 
   const path = location.pathname.slice(1);
 
+  const [contest, setContest] = useState({
+    past: [], present: [], future: []
+  });
   const [upcoming, setUpcoming] = useState([]);
   const [live, setLive] = useState([]);
+  const [past, setPast] = useState([]);
+
   const [loading, setLoading] = useState(true);
 
 
@@ -53,10 +58,21 @@ export const InfoPage = (props) => {
   // }
 
   useEffect(() => {
-    getAllContests(path).then(res =>{
-      const data=res.data;
+    setLoading(true);
+    setContest({
+      past: [], present: [], future: []
+    })
+    getAllContests(path).then(res => {
+      const data = res.data;
+      setContest({
+        past: data.past,
+        present: data.present,
+        future: data.future
+      });
+      setLoading(false);
     });
   }, [location.pathname]);
+
   return (
     <div className="contestContainer">
       {loading ? (
@@ -70,19 +86,19 @@ export const InfoPage = (props) => {
           </div>
         </div>
       ) : null}
-      {live.length == 0 && upcoming.length == 0 ? (
+      {contest?.past?.length + contest.present.length + contest.future.length == 0 ? (
         <div className="info-title-NA">NO CONTESTS AVAILABLE</div>
       ) : null}
-      {live.length != 0 ? (
+      {contest.present.length != 0 ? (
         <>
           <div className="info-title">LIVE CONTESTS</div>
           <div className="cardContainer">
-            {live.map((data) => (
+            {contest.present.map((data) => (
               <Cards
-                codingPlatform={data.site}
+                codingPlatform={data.platform}
                 contestName={data.name}
-                startTime={data.start_time}
-                endTime={data.end_time}
+                startTime={data.start}
+                endTime={data.end}
                 live={true}
               />
             ))}
@@ -92,16 +108,35 @@ export const InfoPage = (props) => {
         // alert("no live contests")
         ""
       )}
-      {upcoming.length != 0 ? (
+      {contest.future.length != 0 ? (
         <>
           <div className="info-title">UPCOMING CONTESTS</div>
           <div className="cardContainer">
-            {upcoming.map((data) => (
+            {contest.future.map((data) => (
               <Cards
-                codingPlatform={data.site}
+                codingPlatform={data.platform}
                 contestName={data.name}
-                startTime={data.start_time}
-                endTime={data.end_time}
+                startTime={data.start}
+                endTime={data.end}
+                live={false}
+              />
+            ))}
+          </div>
+        </>
+      ) : (
+        // alert("no live contests")
+        ""
+      )}
+      {contest.past.length != 0 ? (
+        <>
+          <div className="info-title">OLD CONTESTS</div>
+          <div className="cardContainer">
+            {contest.past.map((data) => (
+              <Cards
+                codingPlatform={data.platform}
+                contestName={data.name}
+                startTime={data.start}
+                endTime={data.end}
                 live={false}
               />
             ))}

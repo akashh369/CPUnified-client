@@ -1,7 +1,7 @@
 import axios from "../config/axios-config";
+import { API_URL } from "../commonService/enum";
 
-const appUrl = "http://localhost:4999/";
-const url = appUrl + "codechef";
+const url = API_URL + "/codechef";
 
 export const getUserData = async (username = "akashh_bhandar", ccUserRefNumber = "NA") => {
   if (typeof username == "string") {
@@ -29,7 +29,7 @@ export const refreshUserData = async (username = "akashh_bhandar") => {
 
 export const getFacts = async () => {
   try {
-    const res = await axios.get(appUrl + `/facts`);
+    const res = await axios.get(API_URL + `/facts`);
     return res.data;
   } catch (err) { }
 };

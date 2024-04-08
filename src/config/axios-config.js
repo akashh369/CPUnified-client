@@ -20,7 +20,7 @@ instance.interceptors.request.use((config) => {
 instance.interceptors.response.use((config) => {
   if (config.data?.sessionExpired) {
     window.localStorage.removeItem(STORAGE_KEYS.TOKEN);
-    
+
   }
   return config;
 })

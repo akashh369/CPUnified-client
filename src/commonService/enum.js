@@ -1,3 +1,5 @@
+export const API_URL = "http://localhost:4999"
+
 export const PATHS = {
     ALL: "/all",
     CODECHEF: "/codechef",
