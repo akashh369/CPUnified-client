@@ -1,58 +1,51 @@
 import React from 'react'
-import {Card, CardContent,Typography,CardActions,Button, Box} from '@mui/material'
+import { Card, CardContent, Typography, CardActions, Button, Box } from '@mui/material'
+import codeChef from '../../assets/Codechef2.png'
+import leetCode from '../../assets/leetCode3.png'
+import './Cards.scss'
 
 
 const Cards = (props) => {
-    const {codingPlatform="codechef",contestName="starters",startTime="00:00:00",endTime="00:00:00",live=false}=props
-  return (
-    <Card sx={{minWidth : 275,width:285}}>       
-        <CardContent>
-            <Box sx={{display : 'flex',justifyContent : 'space-between'}}>
-            <Typography sx={{fontSize: 14,position:'relative',bottom : 10,right :10}} color="text.secondary" >
-                {(codingPlatform).toUpperCase()}
-            </Typography>
-            <Typography sx={{fontSize: 14,position:'relative',bottom : 10,color : '#66ff33'}} color="text.secondary" >
-                {live? "LIVE" : ""}
-            </Typography>
-            </Box>
-            
-            <Typography sx={{fontSize: 24 ,textAlign : 'center'}} color="var(--primary-color)" gutterBottom>
-                {contestName}
-            </Typography>
-            <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
-                starttime:{startTime.slice(0,10) + "," + startTime.slice(11,16)}
-            </Typography>
-            <Typography sx={{fontSize: 14}} color="text.secondary" >
-                endtime:{endTime.slice(0,10) + "," + endTime.slice(11,16)}
-            </Typography>
-        </CardContent>
-             <CardActions sx={{alignContent : 'center'}}>        {/*change this to center */}
-            <Button variant='contained' size="medium" onClick={()=>{
-            }}>Register</Button>
-        </CardActions>
-    </Card>
-    // <Card sx={{ minWidth: 275 }}>
-    //   <CardContent>
-    //     <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-    //       Word of the Day
-    //     </Typography>
-    //     <Typography variant="h5" component="div">
-    //       be{bull}nev{bull}o{bull}lent
-    //     </Typography>
-    //     <Typography sx={{ mb: 1.5 }} color="text.secondary">
-    //       adjective
-    //     </Typography>
-    //     <Typography variant="body2">
-    //       well meaning and kindly.
-    //       <br />
-    //       {'"a benevolent smile"'}
-    //     </Typography>
-    //   </CardContent>
-    //   <CardActions>
-    //     <Button size="small">Learn More</Button>
-    //   </CardActions>
-    // </Card>
-  )
+    const { codingPlatform, contestName, startTime, endTime, live = false, url, banner, contestTime } = props;
+    let imageSrc, imgWidth;
+    switch (codingPlatform) {
+        case "LEETCODE":
+            imageSrc = leetCode;
+            imgWidth = 400;
+            break;
+        case "CODEFORCES":
+            imageSrc = banner;
+            imgWidth = 350;
+            break;
+        default:
+            imageSrc = codeChef;
+            imgWidth = 400;
+
+    }
+    return (
+        <div className='card-container'>
+            <div className='card-container-img'>
+                <img src={imageSrc} />
+            </div>
+            <div className='card-container-info'>
+                <div className='card-container-title'>
+                    {codingPlatform == "CODEFORCES" ? <h3>{contestName}</h3> : <h2>{contestName}</h2>}
+                </div>
+                <div className='card-container-hyperlink'>
+                    <a href={url} target='parent' >{contestTime == 'future' ? "Register" : "Go To Contest"}</a>
+                </div>
+            </div>
+        </div >
+
+        // <a className='card-container' href={url} target='parent'>
+        //     <div className='card-image-container'>
+        //         <img src={imageSrc} className='card-image' />
+        //         <div className='card-title-no-hover'>
+        //             <h3>{contestName}</h3>
+        //         </div>
+        //     </div>
+        // </a>
+    )
 }
 
 export default Cards

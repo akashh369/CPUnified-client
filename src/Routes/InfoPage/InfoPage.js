@@ -93,15 +93,19 @@ export const InfoPage = (props) => {
         <>
           <div className="info-title">LIVE CONTESTS</div>
           <div className="cardContainer">
-            {contest.present.map((data) => (
-              <Cards
-                codingPlatform={data.platform}
-                contestName={data.name}
-                startTime={data.start}
-                endTime={data.end}
-                live={true}
-              />
-            ))}
+            {
+              contest.present.map((data) => (
+                <Cards
+                  contestTime='present'
+                  codingPlatform={data.platform}
+                  contestName={data.name}
+                  startTime={data.start}
+                  endTime={data.end}
+                  url={data.url}
+                  banner={data.banner}
+                  live={true}
+                />
+              ))}
           </div>
         </>
       ) : (
@@ -114,10 +118,13 @@ export const InfoPage = (props) => {
           <div className="cardContainer">
             {contest.future.map((data) => (
               <Cards
+                contestTime='future'
                 codingPlatform={data.platform}
                 contestName={data.name}
                 startTime={data.start}
                 endTime={data.end}
+                url={data.url}
+                banner={data.banner}
                 live={false}
               />
             ))}
@@ -133,10 +140,13 @@ export const InfoPage = (props) => {
           <div className="cardContainer">
             {contest.past.map((data) => (
               <Cards
+                contestTime='past'
                 codingPlatform={data.platform}
                 contestName={data.name}
                 startTime={data.start}
                 endTime={data.end}
+                url={data.url}
+                banner={data.banner}
                 live={false}
               />
             ))}
