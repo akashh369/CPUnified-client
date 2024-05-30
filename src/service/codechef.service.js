@@ -47,3 +47,11 @@ export const getCCContestData = async (ccUserRef1, ccUserRef2) => {
     return res.data;
   } catch (err) { }
 }
+
+export const getExistingUserNamesService = async (searchValue) => {
+  try {
+    const res = await axios.get(url + `/get-codechef-usernames/?searchValue=${searchValue}`);
+    return res.data;
+  }
+  catch (err) { }
+}

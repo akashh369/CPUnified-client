@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Profile.scss'
 import dummyProfile from '../../../src/assets/download.png'
+import { getExistingUserNamesService } from '../../service/codechef.service'
 
 import DialogBox from '../DialogBox/DialogBox'
 
@@ -9,6 +10,7 @@ function Profile(props) {
   const [showDialog, setShowDialog] = useState(false)
   const [inputBar, setInputBar] = useState(false)
   const [inputValue, setInputValue] = useState('');
+  const [userNameOptions, setUserNameOptions] = useState([]);
   function updateFunction() {
     updateUserData(username)
   }
@@ -17,9 +19,12 @@ function Profile(props) {
     // setShowDialog(true)
   }
   const photo = username.Profile
-  const handleInputChange = (e) => {
+
+  const handleInputChange = async (e) => {
     setInputValue(e.target.value);
+    setUserNameOptions((await getExistingUserNamesService(e.target.value)).data);
   };
+
 
   function fetchData(e) {
     if (e.key == "Enter") {
@@ -30,41 +35,35 @@ function Profile(props) {
   }
   const getStarColor = (stars) => {
     //console.log(stars[0])
-    if(stars[0]==1)
-    {
+    if (stars[0] == 1) {
       return 'var(--one-star)';
     }
-    else if(stars[0]==2)
-    {
+    else if (stars[0] == 2) {
       return 'var(--two-star)';
     }
-    else if(stars[0]==3)
-    {
+    else if (stars[0] == 3) {
       return 'var(--three-star)';
     }
-    else if(stars[0]==4)
-    {
+    else if (stars[0] == 4) {
       return 'var(--four-star)';
     }
-    else if(stars[0]==5)
-    {
+    else if (stars[0] == 5) {
       return 'var(--five-star)';
     }
-    else if(stars[0]==6)
-    {
+    else if (stars[0] == 6) {
       return 'var(--six-star)';
     }
-    else{
+    else {
       return 'var(--seven-star)';
     }
-    
+
   };
 
 
   return (<>
     <div className='profile-container common-container'>
       <div className="profile-photo">
-        <img src={userinfo.profile } loading='lazy' />
+        <img src={userinfo.profile} loading='lazy' />
         {/* <img src={dummyProfile} loading='lazy' /> */}
       </div>
       <div className="user-info">
@@ -73,8 +72,8 @@ function Profile(props) {
             <h3>Name : </h3>{userinfo.name}
           </div>
           <div className="stars" style={{ color: getStarColor(userinfo.stars) }}>
-          {userinfo.stars}
-        </div>
+            {userinfo.stars}
+          </div>
         </div>
 
         <div className="name-ranking">
@@ -118,9 +117,20 @@ function Profile(props) {
             </h3>
           </div>
 
-          <div className="">
+          <div className="change-handle-user">
             {inputBar ?
-              <input type="text" value={inputValue} onChange={handleInputChange} onKeyUp={fetchData} />
+              (<div className='search-dropdown'>
+                <input type="text" value={inputValue} onChange={handleInputChange} onKeyUp={fetchData} />
+                <div className='options-container'>
+                  {
+                    userNameOptions.map(user =>
+                      <div className='single-option-container'>
+                        <p>{user}</p>
+                      </div>
+                    )
+                  }
+                </div>
+              </div>)
               : <h3>
                 <button onClick={() => {
                   setInputBar(true)
