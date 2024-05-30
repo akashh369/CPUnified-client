@@ -36,15 +36,6 @@ const Cards = (props) => {
                 </div>
             </div>
         </div >
-
-        // <a className='card-container' href={url} target='parent'>
-        //     <div className='card-image-container'>
-        //         <img src={imageSrc} className='card-image' />
-        //         <div className='card-title-no-hover'>
-        //             <h3>{contestName}</h3>
-        //         </div>
-        //     </div>
-        // </a>
     )
 }
 
