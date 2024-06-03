@@ -24,12 +24,15 @@ function CodechefCompare() {
   return (
     <>
       <div className="dummy-mouse"></div>
-      <div className="main-container">
-        <div className="container-left">
-          <CompareComponent ccUserRefNumber={1}/>
-        </div>
-        <div className="container-right">
-          <CompareComponent ccUserRefNumber={2}/>
+      <div className="blur-container">
+
+        <div className="main-container">
+          <div className="container-left">
+            <CompareComponent ccUserRefNumber={1} />
+          </div>
+          <div className="container-right">
+            <CompareComponent ccUserRefNumber={2} />
+          </div>
         </div>
       </div>
     </>

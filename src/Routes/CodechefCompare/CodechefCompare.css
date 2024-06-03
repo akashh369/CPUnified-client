@@ -11,7 +11,7 @@
 
 }
 
-.dummy-mouse{
+.dummy-mouse {
     position: fixed;
     height: 30px;
     width: 30px;
@@ -20,5 +20,18 @@
     opacity: 0.6;
     top: 0;
     left: 0;
+    z-index: 4;
+}
+
+.blur-container {
+    /* From https://css.glass */
+    background: rgba(237, 255, 10, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.8px);
+    -webkit-backdrop-filter: blur(4.8px);
+    /* border: 1px solid rgba(237, 255, 10, 0.3); */
+    height: 100%;
+    width: 100vw;
     z-index: 3;
 }
