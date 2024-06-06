@@ -10,7 +10,8 @@ export const PATHS = {
     LANDING_PAGE: "/login-signup"
 }
 export const STORAGE_KEYS = {
-    TOKEN : "TOKEN",
-    CC_USER1 : "CC_USER1",
-    CC_USER2 : "CC_USER2"
+    TOKEN: "TOKEN",
+    CC_USER1: "CC_USER1",
+    CC_USER2: "CC_USER2",
+    USERNAME: "USERNAME"
 }

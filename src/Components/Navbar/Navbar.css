@@ -23,3 +23,35 @@ a.activeNavElement {
     background-color: var(--primary-color);
     display: flex;
 }
+
+.user-options {
+    display: flex;
+    cursor: pointer;
+
+    .hello-container {
+        margin: 15px 0;
+        color: var(--text-color-primary);
+    }
+
+    .user-options-container {
+        transition: .15s ease;
+        position: absolute;
+        z-index: 10;
+        top: 60px;
+        background-color: var(--primary-color);
+        text-align: center;
+
+
+
+        div {
+            padding: 10px 5px;
+            color: var(--text-color-primary);
+            transition: .5s ease;
+        }
+
+        hr {
+            width: 90%;
+            margin: 0 5%;
+        }
+    }
+}

@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import bg from "../../assets/download.png";
 import "./Home.css";
-import { loginUser } from "../../service/auth.service";
+import { loginUser, registerUser } from "../../service/auth.service";
+import { STORAGE_KEYS } from "../../commonService/enum";
 
 const Home = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    // const form=document.getElementById('form')
-    // form.reset()
+  const [isLoginPage, setIsLoginPage] = useState(true);
 
-    await loginUser(name, password);
+  async function handleSubmit(event) {
+    localStorage.setItem(STORAGE_KEYS.USERNAME, name);
+    event.preventDefault();
+    if (isLoginPage)
+      await loginUser(name, password);
+    else
+      await registerUser(name, password, '');
   }
 
   const handleInputChange = (val) => {
@@ -34,9 +38,16 @@ const Home = () => {
   return (
     <>
       <img src={bg} className="bg-image" />
+      <div className="login-register-container" onClick={() => { setIsLoginPage(!isLoginPage) }} >
+        {
+          isLoginPage ?
+            <div>register</div>
+            : <div>login</div>
+        }
+      </div>
       <form onSubmit={handleSubmit} action="post" id="form">
         <div className="loginform">
-          <h1>Login</h1>
+          <h1>{isLoginPage ? 'Login' : 'Register'}</h1>
           <p>USERNAME*</p>
           <input
             type="text"
@@ -81,7 +92,7 @@ const Home = () => {
             </div>
           </div>
 
-          <input type="submit" name="login-btn" value="Login" />
+          <input type="submit" name="login-btn" value={isLoginPage ? 'Login' : 'Register'} />
 
           <button
             style={{ border: "none", background: "none", cursor: "pointer" }}

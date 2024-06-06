@@ -12,23 +12,30 @@
   --text-color-secondary-dark: rgb(229, 181, 25);
   --text-color-white: #fff;
 
-  --one-star:grey;
-  --two-star:green;
-  --three-star:rgb(29, 124, 219);
-  --four-star:rgb(64, 17, 103);
-  --five-star:rgb(247, 218, 0);
-  --six-star:rgb(255, 136, 0);
-  --seven-star:rgb(255, 0, 0);
+  --one-star: grey;
+  --two-star: green;
+  --three-star: rgb(29, 124, 219);
+  --four-star: rgb(64, 17, 103);
+  --five-star: rgb(247, 218, 0);
+  --six-star: rgb(255, 136, 0);
+  --seven-star: rgb(255, 0, 0);
 
 }
-:cstar{
-  --one-star:grey;
-  --two-star:green;
-  --three-star:rgb(29, 124, 219);
-  --four-star:rgb(64, 17, 103);
-  --five-star:rgb(247, 218, 0);
-  --six-star:rgb(255, 136, 0);
-  --seven-star:rgb(255, 0, 0);
+
+:cstar {
+  --one-star: grey;
+  --two-star: green;
+  --three-star: rgb(29, 124, 219);
+  --four-star: rgb(64, 17, 103);
+  --five-star: rgb(247, 218, 0);
+  --six-star: rgb(255, 136, 0);
+  --seven-star: rgb(255, 0, 0);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
 }
 
 
@@ -62,8 +69,16 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 0;
 }
-* {
-  margin: 0;
-  padding: 0;
-  font-family: Arial;
+
+.blur-container {
+  /* From https://css.glass */
+  background: rgba(238, 255, 5, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.8px);
+  -webkit-backdrop-filter: blur(4.8px);
+  /* border: 1px solid rgba(237, 255, 10, 0.3); */
+  height: 100%;
+  width: 100vw;
+  z-index: 3;
 }

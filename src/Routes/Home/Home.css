@@ -5,6 +5,21 @@
   overflow: hidden;
 }
 
+.login-register-container {
+  cursor: pointer;
+  position: absolute;
+  text-transform: uppercase;
+  font-weight: bold;
+  top: 11%;
+  left: 5%;
+  z-index: 1;
+
+  animation: highlight-div 5s infinite ;
+  div {
+    padding: .5rem 1rem;
+  }
+}
+
 .loginform {
   color: var(--primary-color);
   width: 50%;
@@ -21,6 +36,7 @@
   border-radius: 5px;
   box-shadow: 0px 10px 29px 0px #5b5958;
 }
+
 .loginform h1 {
   font-size: 30px;
   margin: 30px 0px;
@@ -28,10 +44,12 @@
   font-weight: normal;
   text-align: center;
 }
+
 .loginform input {
   width: 100%;
   margin-bottom: 30px;
 }
+
 .loginform input[type="text"],
 input[type="password"] {
   border: none;
@@ -42,6 +60,7 @@ input[type="password"] {
   color: #333;
   font-size: 16px;
 }
+
 .loginform input[type="submit"] {
   background: var(--text-color-secondary);
   color: #fff;
@@ -52,6 +71,7 @@ input[type="password"] {
   border: none;
   margin-bottom: 5px;
 }
+
 .loginform input[type="submit"]:hover {
   cursor: pointer;
   background-color: var(--text-color-secondary-dark);
@@ -60,28 +80,51 @@ input[type="password"] {
 .loginform .have-not {
   float: right;
 }
+
 input:required:invalid {
-  border-color: #ff0000; /* Red border for required but invalid input */
-  animation: pulseBorder 1s infinite; /* Pulse animation for invalid input */
+  border-color: #ff0000;
+  /* Red border for required but invalid input */
+  animation: pulseBorder 1s infinite;
+  /* Pulse animation for invalid input */
 }
 
 @keyframes pulseBorder {
   0% {
     border-color: #ff0000;
   }
+
   50% {
     border-color: #ffb3b3;
   }
+
   100% {
     border-color: #ff0000;
   }
 }
 
+@keyframes highlight-div {
+  0% {
+    background-color: var(--text-color-secondary);
+    color: var(--text-color-white);
+  }
+
+  50% {
+    background-color: #ff5500;
+  }
+
+  100% {
+    background-color: var(--text-color-secondary);
+    color: var(--text-color-white);
+  }
+}
+
 @keyframes shake {
+
   0%,
   100% {
     transform: translateX(0);
   }
+
   10%,
   30%,
   50%,
@@ -89,6 +132,7 @@ input:required:invalid {
   90% {
     transform: translateX(-5px);
   }
+
   20%,
   40%,
   60%,
@@ -96,18 +140,27 @@ input:required:invalid {
     transform: translateX(5px);
   }
 }
+
 #error-message {
   color: #ff0000;
   font-weight: bold;
   margin-top: 10px;
-  animation: shake 0.5s ease-in-out; /* Shake animation for error message */
+  animation: shake 0.5s ease-in-out;
+  /* Shake animation for error message */
 }
+
 .password-container {
   position: relative;
+
   svg {
     position: absolute;
     right: 10px;
     top: 10px;
     cursor: pointer;
   }
+}
+
+.login-register-container {
+  display: flex;
+  flex-direction: row-reverse;
 }
