@@ -5,7 +5,8 @@
   overflow: hidden;
 }
 
-.login-register-container {
+
+/* .login-register-container {
   cursor: pointer;
   position: absolute;
   text-transform: uppercase;
@@ -14,15 +15,90 @@
   left: 5%;
   z-index: 1;
 
-  animation: highlight-div 5s infinite ;
-  div {
+  animation: highlight-div 5s infinite;
+
+  div div {
     padding: .5rem 1rem;
+  }
+} */
+
+.login-register-demo {
+  left: -20px;
+  top: -15px;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 8px 6px;
+  width: fit-content;
+  /* animation: highlight-div 5s infinite; */
+  background-color: var(--text-color-secondary);
+  color: var(--text-color-white);
+}
+
+/* .go-right {
+  left: calc(100% - 32px);
+  transform: translateX(-50%);
+  transition: left 2s, transform 2s, width 2s;
+}
+
+.go-left {
+  left: -20px;
+  transition: left 2s, transform 2s, width 2s;
+} */
+
+/* @keyframes highlight-div {
+  0% {
+    background-color: var(--text-color-secondary);
+    color: var(--text-color-white);
+  }
+
+  50% {
+    background-color: #ff5500;
+  }
+
+  100% {
+    background-color: var(--text-color-secondary);
+    color: var(--text-color-white);
+  }
+} */
+
+.login-magicx:active {
+  animation: login-magic 1s;
+}
+
+/* .go-right {
+  animation: login-magic 2s forwards;
+} */
+
+@keyframes login-magic {
+  0% {
+    /* float: left; */
+  }
+
+  25% {
+    left: -1000px;
+    /* display: none; */
+  }
+
+  50% {
+    left: 10000px;
+    /* display: none; */
+  }
+
+  51% {
+    left: 100%;
+  }
+
+  100% {
+    /* float: right; */
+    left: calc(100%-32px);
   }
 }
 
 .loginform {
   color: var(--primary-color);
-  width: 50%;
+  width: 50vw;
   min-width: 360px;
   background: #eae4e4;
 
@@ -35,6 +111,8 @@
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 10px 29px 0px #5b5958;
+
+  overflow: hidden;
 }
 
 .loginform h1 {
@@ -102,21 +180,6 @@ input:required:invalid {
   }
 }
 
-@keyframes highlight-div {
-  0% {
-    background-color: var(--text-color-secondary);
-    color: var(--text-color-white);
-  }
-
-  50% {
-    background-color: #ff5500;
-  }
-
-  100% {
-    background-color: var(--text-color-secondary);
-    color: var(--text-color-white);
-  }
-}
 
 @keyframes shake {
 
@@ -160,7 +223,36 @@ input:required:invalid {
   }
 }
 
-.login-register-container {
-  display: flex;
-  flex-direction: row-reverse;
+
+.register-to-login-animation {
+  overflow: hidden;
+  position: relative;
+  width: 90%;
+  height: 90%;
+  /* animation: loginTransition 2s .15s; */
+  z-index: 100;
+  background-color: #000;
+  box-sizing: border-box;
+}
+
+/*.login-to-register-animation {
+  animation: loginTransition 2s .15s reverse;
+} */
+
+@keyframes loginTransition {
+  0% {
+    background-color: var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 50%;
+    height: 0%;
+    width: 0%;
+  }
+
+  100% {
+    background-color: var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+  }
 }

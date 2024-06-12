@@ -38,15 +38,16 @@ const Home = () => {
   return (
     <>
       <img src={bg} className="bg-image" />
-      <div className="login-register-container" onClick={() => { setIsLoginPage(!isLoginPage) }} >
-        {
-          isLoginPage ?
-            <div>register</div>
-            : <div>login</div>
-        }
-      </div>
       <form onSubmit={handleSubmit} action="post" id="form">
         <div className="loginform">
+          <div className='login-register-demo login-magicx' onClick={() => { setIsLoginPage(!isLoginPage) }}>
+            <div className="pointed-left"></div>
+            {
+              isLoginPage ?
+                <div>Long press to register</div>
+                : <div>Long press to login</div>
+            }
+          </div>
           <h1>{isLoginPage ? 'Login' : 'Register'}</h1>
           <p>USERNAME*</p>
           <input
