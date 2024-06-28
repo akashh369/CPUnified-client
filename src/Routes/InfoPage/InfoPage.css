@@ -12,7 +12,9 @@
 .info-title{
     color: var(--text-color-primary);
     text-align: center;
-    font-size: min(11vh,10vw);
+    
+
+     font-size: 3.5rem
 }
 .bufferContainer{
     display: flex;

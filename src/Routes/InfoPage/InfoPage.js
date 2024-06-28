@@ -87,11 +87,11 @@ export const InfoPage = (props) => {
         </div>
       ) : null}
       {contest?.past?.length + contest.present.length + contest.future.length == 0 ? (
-        <div className="info-title-NA">NO CONTESTS AVAILABLE</div>
+        <div className="info-title-NA header">NO CONTESTS AVAILABLE</div>
       ) : null}
       {contest.present.length != 0 ? (
         <>
-          <div className="info-title">LIVE CONTESTS</div>
+          <div className="info-title header">LIVE CONTESTS</div>
           <div className="cardContainer">
             {
               contest.present.map((data) => (
@@ -114,7 +114,7 @@ export const InfoPage = (props) => {
       )}
       {contest.future.length != 0 ? (
         <>
-          <div className="info-title">UPCOMING CONTESTS</div>
+          <div className="info-title header">UPCOMING CONTESTS</div>
           <div className="cardContainer">
             {contest.future.map((data) => (
               <Cards
@@ -136,7 +136,7 @@ export const InfoPage = (props) => {
       )}
       {contest.past.length != 0 ? (
         <>
-          <div className="info-title">OLD CONTESTS</div>
+          <div className="info-title header">OLD CONTESTS</div>
           <div className="cardContainer">
             {contest.past.map((data) => (
               <Cards

@@ -9,7 +9,7 @@ import { MouseContext } from "../../App";
 const Navbar = () => {
   const completeLocation = window.location.href;
   const currentUserName = localStorage.getItem(STORAGE_KEYS.USERNAME);
-  const [toggleUserOptions, setToggleUserOptions] = useState(false);
+  const [toggleUserOptions, setToggleUserOptions] = useState(true);
   const [doubleMouse, setDoubleMouse] = useContext(MouseContext);
   return (
     <Box>

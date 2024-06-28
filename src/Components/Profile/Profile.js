@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import './Profile.scss'
 import dummyProfile from '../../../src/assets/download.png'
 import { getExistingUserNamesService } from '../../service/codechef.service'
+import * as _ from 'lodash';
 
-import DialogBox from '../DialogBox/DialogBox'
 
 function Profile(props) {
   const { username, userinfo, updateUserData, getUserData } = props
@@ -20,19 +20,35 @@ function Profile(props) {
   }
   const photo = username.Profile
 
+  const debounceSearch = useCallback(
+    _.debounce(async (searchValue) => {
+      const userNameOptions = (await getExistingUserNamesService(searchValue)).data;
+      setUserNameOptions(userNameOptions);
+    }, 600), []);
+
   const handleInputChange = async (e) => {
     setInputValue(e.target.value);
-    setUserNameOptions((await getExistingUserNamesService(e.target.value)).data);
+    debounceSearch(e.target.value);
   };
 
 
-  function fetchData(e) {
-    if (e.key == "Enter") {
-      getUserData(inputValue)
-      setInputValue("")
-      setInputBar(false)
+  function fetchData(e, userName) {
+    if (e?.key == "Enter") {
+      getUserData(inputValue);
+      setInputValue("");
+      setInputBar(false);
+    }
+    if (e == undefined) {
+      getUserData(userName);
+      setInputValue("");
+      setInputBar(false);
     }
   }
+
+  const changeHandleUser = useCallback((userName) => {
+    setTimeout(() => { fetchData(undefined, userName) }, 800);
+  }, []);
+
   const getStarColor = (stars) => {
     //console.log(stars[0])
     if (stars[0] == 1) {
@@ -120,13 +136,19 @@ function Profile(props) {
           <div className="change-handle-user">
             {inputBar ?
               (<div className='search-dropdown'>
-                <input type="text" value={inputValue} onChange={handleInputChange} onKeyUp={fetchData} />
+                <input type="text" value={inputValue} placeholder='Ensure the username is correct' onChange={handleInputChange} onKeyUp={fetchData} />
                 <div className='options-container'>
                   {
-                    userNameOptions.map(user =>
-                      <div className='single-option-container'>
-                        <p>{user}</p>
-                      </div>
+                    userNameOptions.map((user, index) =>
+                      <>
+                        <div className='single-option-container'
+                          style={{ background: index % 2 ? 'var(--primary-color-dark)' : 'var(--primary-color)' }}
+                          onClick={() => { changeHandleUser(user) }}
+                        >
+                          <p>{user}</p>
+                        </div>
+                        <center><hr></hr></center>
+                      </>
                     )
                   }
                 </div>

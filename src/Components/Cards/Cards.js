@@ -44,12 +44,8 @@ const Cards = (props) => {
                 <img src={imageSrc} />
             </div>
             <div class='container2'>
-                <div className='card-container-title'>
-                    {codingPlatform == "CODEFORCES" ?
-                        <h5>{contestName}</h5>
-                        :
-                        codingPlatform == "CODECHEF" ?
-                            <h4>{contestName}</h4> : <h3>{contestName}</h3>}
+                <div className='card-container-title' style={contestName.length >40 ? { fontSize: '1rem'} : {fontSize: '1.3rem' }}>
+                    {contestName}
                 </div>
                 <div className='card-container-hyperlink'>
                     <a href={url} target='parent' >{contestTime == 'future' ? "Register" : "Go To Contest"}</a>
