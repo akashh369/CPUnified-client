@@ -64,10 +64,10 @@ const Navbar = () => {
               {/* UP ICON */}
               {toggleUserOptions ?
                 <svg width='48px' height='48px' viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(180)">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                   <g id="SVGRepo_iconCarrier">
-                    <path d="M7 10L12 15L17 10" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M7 10L12 15L17 10" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                   </g>
                 </svg>
                 : ''}
@@ -75,10 +75,10 @@ const Navbar = () => {
               {/* DOWN ICON */}
               {!toggleUserOptions ?
                 <svg width='48px' height='48px' viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                   <g id="SVGRepo_iconCarrier">
-                    <path d="M7 10L12 15L17 10" stroke="#fffafa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M7 10L12 15L17 10" stroke="#fffafa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                   </g>
                 </svg>
                 : ''}

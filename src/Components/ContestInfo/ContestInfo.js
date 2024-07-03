@@ -42,6 +42,14 @@ const chartAreaBorder = {
   },
 };
 
+const bodyStyle = `
+.body-stying{
+opacity : 0.3;
+}`
+
+const style = document.createElement('style');
+style.appendChild(document.createTextNode(bodyStyle));
+
 function ContestInfo(props) {
   const [showGraphCompare, setShowGraphCompare] = useState(false)
   let user1, user2
@@ -60,7 +68,15 @@ function ContestInfo(props) {
   }, []);
 
   const enableDisableDialog = () => {
-    setShowGraphCompare(!showGraphCompare)
+    const showGraph = showGraphCompare;
+    setShowGraphCompare(!showGraph)
+    if (showGraph) {
+    }
+    else {
+      document.body.append('body-stylng');
+      // document.body.remove('body-stylng');
+    }
+
   };
 
 
@@ -158,13 +174,13 @@ function ContestInfo(props) {
         <h1>Rating Graph</h1>
         <div className="bar-graph">
           <Bar options={options} data={data} />
-          <div className="compare-button" onClick={()=>{ enableDisableDialog()}}>
+          <div className="compare-button" onClick={() => { enableDisableDialog() }}>
             <a>compare</a>
           </div>
         </div>
       </div>
       {showGraphCompare ?
-        <DialogCompareComponent enableDisableDialog={() => {enableDisableDialog() }} />
+        <DialogCompareComponent enableDisableDialog={() => { enableDisableDialog() }} />
         : ""}
 
     </>

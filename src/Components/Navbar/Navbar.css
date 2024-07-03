@@ -12,7 +12,10 @@
 .navElement {
     padding: 10px 20px;
     color: var(--text-color-primary);
+    background-color: #444;
+    transition: 0.8s;
 }
+
 
 a.activeNavElement {
     padding: 10px 20px;
@@ -54,4 +57,8 @@ a.activeNavElement {
             margin: 0 5%;
         }
     }
+}
+
+.user-options-container :hover {
+    background-color: #444;
 }

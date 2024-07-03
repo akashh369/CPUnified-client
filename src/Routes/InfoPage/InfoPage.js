@@ -21,42 +21,6 @@ export const InfoPage = (props) => {
 
   const [loading, setLoading] = useState(true);
 
-
-
-  // async function getData() {
-  //   setLive([]);
-  //   setUpcoming([]);
-  //   let flag = false;
-  //   setLoading(true);
-  //   setTimeout(() => {
-  //     if (fetchData) {
-  //       setLoading(false);
-  //       flag = true;
-  //     }
-  //   }, 1000);
-  //   const startTime = performance.now();
-  //   var fetchData = await axios.get(`https://kontests.net/api/v1/${page}`);
-  //   const endTime = performance.now();
-  //   if (endTime - startTime > 1000) {
-  //     setLoading(false);
-  //     flag = true;
-  //   }
-  //   let interval = setInterval(() => {
-  //     if (flag) {
-  //       const upcomingContests = [],
-  //         liveContests = [];
-  //       fetchData.data.forEach((cardData) => {
-  //         cardData.status.toLowerCase() == "before"
-  //           ? upcomingContests.push(cardData)
-  //           : liveContests.push(cardData);
-  //       });
-  //       setLive(liveContests);
-  //       setUpcoming(upcomingContests);
-  //       clearInterval(interval);
-  //     }
-  //   }, 100);
-  // }
-
   useEffect(() => {
     setLoading(true);
     setContest({
@@ -85,10 +49,16 @@ export const InfoPage = (props) => {
             <img src={codeLoading} />
           </div>
         </div>
-      ) : null}
-      {contest?.past?.length + contest.present.length + contest.future.length == 0 ? (
-        <div className="info-title-NA header">NO CONTESTS AVAILABLE</div>
-      ) : null}
+      )
+        :
+        (
+          contest.past?.length + contest.present?.length + contest.future?.length == 0
+            ? <div className="info-title-NA header">NO CONTESTS AVAILABLE</div>
+            :
+            null
+        )
+      }
+
       {contest.present.length != 0 ? (
         <>
           <div className="info-title header">LIVE CONTESTS</div>
